@@ -49,4 +49,4 @@ Successive iteration of $x_{n+1} = x_n r (1-x_n)$ for 50,0000 steps. Find the Ma
 
 Probability of finding a particular value of $x$; histogram or Probability Density Function
 
-<iframe src="https://www.wolframcloud.com/obj/17a14ce7-adc6-42bc-90f5-edeb8e66ab04?_embed=iframe" width="300" height="300"></iframe>
+<iframe src="https://www.wolframcloud.com/obj/17a14ce7-adc6-42bc-90f5-edeb8e66ab04?_embed=iframe" width="600" height="600"></iframe>
