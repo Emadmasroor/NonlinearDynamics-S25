@@ -44,6 +44,8 @@ Hyperlinks to lectures and homework assignments will be posted here.
 ### The Logistic Map
 Successive iteration of $x_{n+1} = x_n r (1-x_n)$ for 50,0000 steps. Find the Mathematica code [here](Resources/LogisticMap_xvsn.nb).
 
-
 <iframe src="https://www.wolframcloud.com/obj/a6fd182a-07de-4bfc-aac1-00d2bd25e5c7?_embed=iframe" width="600" height="800"></iframe>
 
+Probability of finding a particular value of $x$; histogram or Probability Density Function
+
+<iframe src="https://www.wolframcloud.com/obj/17a14ce7-adc6-42bc-90f5-edeb8e66ab04?_embed=iframe" width="300" height="300"></iframe>
