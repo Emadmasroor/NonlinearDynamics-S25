@@ -1,0 +1,158 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[      6006,        157]
+NotebookOptionsPosition[      5349,        132]
+NotebookOutlinePosition[      5766,        149]
+CellTagsIndexPosition[      5723,        146]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"init", "=", "0.4"}], ",", 
+         RowBox[{"nsteps", "=", "50000"}]}], "}"}], ",", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", "func", "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"func", "[", "x_", "]"}], ":=", 
+           RowBox[{"r", " ", "x", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", "x"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"NestList", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"func", "[", "#", "]"}], "&"}], ",", "init", ",", 
+            "nsteps"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"PointSize", "->", "0.001"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Frame", "->", "True"}], ",", 
+     RowBox[{"PlotRange", "->", 
+      RowBox[{"{", 
+       RowBox[{"All", ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotRangePadding", "->", "None"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"FrameTicksStyle", "->", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"FontSize", "->", "14"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{"PlotLabel", "->", 
+      RowBox[{"Style", "[", 
+       RowBox[{
+        RowBox[{
+        "\"\<Evolution of \!\(\*SubscriptBox[\(x\), \(n\)]\)   r = \>\"", "<>", 
+         RowBox[{"ToString", "[", "r", "]"}]}], ",", 
+        RowBox[{"FontSize", "->", "20"}]}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"FrameLabel", "->", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"FontSize", "->", "16"}]}], "]"}], "&"}], "/@", 
+        RowBox[{"{", 
+         RowBox[{"\"\<No. of steps n\>\"", ",", "\"\<Value of x\>\""}], 
+         "}"}]}], ")"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r", ",", "1.1", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Parameter r\>\"", ",", 
+         RowBox[{"FontSize", "->", "14"}]}], "]"}]}], "}"}], ",", "1", ",", 
+     "4"}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"c746bfb3-20cd-4d1e-90b8-4d5c2a0b2b71"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`r$$ = 1.1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`r$$], 1.1, 
+       Style["Parameter r", FontSize -> 14]}, 1, 4}}, Typeset`size$$ = {
+    360., {127., 131.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`r$$ = 1.1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ListPlot[
+        With[{$CellContext`init$ = 0.4, $CellContext`nsteps$ = 50000}, 
+         Module[{$CellContext`func$}, $CellContext`func$[
+             Pattern[$CellContext`x$, 
+              Blank[]]] := $CellContext`r$$ $CellContext`x$ (
+             1 - $CellContext`x$); 
+          NestList[$CellContext`func$[#]& , $CellContext`init$, \
+$CellContext`nsteps$]]], PlotStyle -> (PointSize -> 0.001), Frame -> True, 
+        PlotRange -> {All, {0, 1}}, PlotRangePadding -> None, FrameTicksStyle -> 
+        Directive[FontSize -> 14], PlotLabel -> 
+        Style["Evolution of \!\(\*SubscriptBox[\(x\), \(n\)]\)   r = " <> 
+          ToString[$CellContext`r$$], FontSize -> 20], FrameLabel -> 
+        Map[Style[#, FontSize -> 16]& , {"No. of steps n", "Value of x"}]], 
+      "Specifications" :> {{{$CellContext`r$$, 1.1, 
+          Style["Parameter r", FontSize -> 14]}, 1, 4}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{404., {172., 177.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.9537872590150414`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"c1ba145c-3f2e-44be-a1aa-72c65ec9f99c"]
+}, Open  ]]
+},
+WindowSize->{808, 866},
+WindowMargins->{{Automatic, 282}, {Automatic, 45}},
+CellContext->Notebook,
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a8daf7a8-915c-4503-9d0b-e43d767c362e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 2504, 66, 262, "Input",ExpressionUUID->"c746bfb3-20cd-4d1e-90b8-4d5c2a0b2b71"],
+Cell[2929, 83, 2404, 46, 391, "Output",ExpressionUUID->"c1ba145c-3f2e-44be-a1aa-72c65ec9f99c"]
+}, Open  ]]
+}
+]
+*)
+
