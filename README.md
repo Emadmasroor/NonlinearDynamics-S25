@@ -20,7 +20,7 @@ Hyperlinks to lectures and homework assignments will be posted here.
 |   [6.2](Lecs/E91.S25.Lec11.pdf)       |   Wed, Feb 26  |   Nonlinear phase plane; conservative systems                     |   Ch. 6.4-6.8               |   ~~HW 5~~     |
 |   [7.1](Lecs/E91.S25.Lec12.pdf)       |   Mon, Mar 3   |   Conservative systems; index                     |   Ch. 8               |            |
 |   [7.2](Lecs/E91.S25.Lec13.pdf) [[In-class exercise](Exercises/Exercise3.pdf)]        |   Wed, Mar 5   |   Limit Cycles                     |   Ch. 8               |   [HW 5](HW/HW5.pdf) due F     |
-|   [8.1](Lecs/E91.S25.Lec14.pdf) [[Video recording](https://swarthmore.zoom.us/rec/share/VO389Ska0hP74nANMcAKh9RGDLwob_t7RvvA3Hk9zKM0asa4DXU_WvbwDjh5i7Pq.dpFjv6eML18zBrXk?startTime=1741162454000)]     |   Mon, Mar 17  |   Limit Cycles; Poincare-Bendixson Thm.                |                       |            |
+|   [8.1](Lecs/E91.S25.Lec14.pdf) [[Video recording](https://tinyurl.com/E91March17)]     |   Mon, Mar 17  |   Limit Cycles; Poincare-Bendixson Thm.                |                       |            |
 |   8.2        |   Wed, Mar 19  |   **Midterm**            |                       |     |
 |   [9.1](Lecs/E91.S25.Lec15.pdf) [[In-class exercise](Exercises/Exercise4.pdf)]       |   Mon, Mar 24  |   Bifurcations                 |                       |            |
 |   9.2 [[In-class exercise](Exercises/Exercise5.pdf)]        |   Wed, Mar 26  |                |                       |        |
