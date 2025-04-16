@@ -3,7 +3,7 @@ A repository for the class website of E91, Nonlinear Dynamics, at Swarthmore
 
 ## Schedule
 
-Hyperlinks to lectures and homework assignments will be posted here. The schedule after spring break is tentative.
+Hyperlinks to lectures and homework assignments will be posted here. 
 
 |   **Class**  |   **Date**     |   **Topic**                        |   **Readings**        |   **Due**  |
 |--------------|----------------|------------------------------------|-----------------------|------------|
