@@ -38,3 +38,8 @@ Hyperlinks to lectures and homework assignments will be posted here.
 | 14.1                                                                              | Mon, Apr 28 |                                             |                                                  |                                                       |
 | 14.2                                                                              | Wed, Apr 30 |                                             |                                                  |                                                       |
 
+
+## Resources
+
+<iframe src="https://www.wolframcloud.com/obj/a6fd182a-07de-4bfc-aac1-00d2bd25e5c7?_embed=iframe" width="600" height="800"></iframe>
+
