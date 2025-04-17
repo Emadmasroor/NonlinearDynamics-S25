@@ -16,6 +16,12 @@ Find the Mathematica code [here](Resources/LorenzAttractor.nb)
 
 <iframe src="https://www.wolframcloud.com/obj/01effb5e-28a4-4203-aa38-b04816f928d2?_embed=iframe" width="600" height="500"></iframe>
 
+### Python Code for the Lorenz equations
+
+{% highlight python %}
+{% include lorenz1.py %}
+{% endhighlight %}
+
 ### Visualizing the Lorenz Attractor
 
 <iframe src="https://www.malinc.se/m/Lorenz.php" width="600" height="500"></iframe>

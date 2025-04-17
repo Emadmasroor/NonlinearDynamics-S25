@@ -38,34 +38,6 @@ Hyperlinks to lectures and homework assignments will be posted here.
 | 14.1                                                                                     |                                             |                    |                                                       |
 | 14.2                                                                                     |                                             |                    |                                                       |
 
-## Resources
-
-### The Orbit Diagram of the Logistic Map
-
-#### x vs n
-
-Successive iteration of $$x_{n+1} = x_n r (1-x_n)$$ for 50,0000 steps. Find the Mathematica code [here](Resources/LogisticMap_xvsn.nb).
-
-<iframe src="https://www.wolframcloud.com/obj/a6fd182a-07de-4bfc-aac1-00d2bd25e5c7?_embed=iframe" width="600" height="500"></iframe>
-
-#### Probabilities
-
-Probability of finding a particular value of $x$; histogram or Probability Density Function
-
-<iframe src="https://www.wolframcloud.com/obj/17a14ce7-adc6-42bc-90f5-edeb8e66ab04?_embed=iframe" width="600" height="500"></iframe>
-
-#### Visualization
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PtfPDfoF-iY?si=ZdUkYNN7SSS7e17s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-#### Make your own
-
-Run the code in this [NextJournal notebook](https://nextjournal.com/emad-masroor-teaching/orbit-diagram-for-the-logistic-map) or download the Python file [here](Resources/orbitdiagram.py) 
-
-#### Interactive Wolfram Demonstrations
-
-- [Trajectories of the LogisticMap on a cobweb diagram](https://demonstrations.wolfram.com/TrajectoriesOfTheLogisticMap/)
-- [Orbit Diagram](https://demonstrations.wolfram.com/ClassicLogisticMap/)
 
 
 
