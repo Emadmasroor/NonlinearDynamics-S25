@@ -1,5 +1,5 @@
-# NonlinearDynamics-S25
-The class website of E91, Nonlinear Dynamics, at Swarthmore
+# Nonlinear Dynamics and Chaos
+Class website of E91, Nonlinear Dynamics & Chaos. (c) Emad Masro
 
 ## Schedule
 
