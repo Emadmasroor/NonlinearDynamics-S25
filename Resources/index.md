@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 {:toc}
 
 ## The Lorenz equations
