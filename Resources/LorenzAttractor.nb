@@ -1,0 +1,696 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26536,        688]
+NotebookOptionsPosition[     24765,        647]
+NotebookOutlinePosition[     25182,        664]
+CellTagsIndexPosition[     25139,        661]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Set up equations", "Subsubsection",
+ CellChangeTimes->{{3.953904168053293*^9, 
+  3.9539041697120533`*^9}},ExpressionUUID->"3a6f2e52-cbf3-49b2-813c-\
+fba93b5bff00"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"eq1", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+   RowBox[{"\[Sigma]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"y", "[", "t", "]"}], "-", 
+      RowBox[{"x", "[", "t", "]"}]}], ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"eq2", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"y", "'"}], "[", "t", "]"}], "==", 
+   RowBox[{
+    RowBox[{"r", " ", 
+     RowBox[{"x", "[", "t", "]"}]}], " ", "-", " ", 
+    RowBox[{"y", "[", "t", "]"}], " ", "-", " ", 
+    RowBox[{
+     RowBox[{"x", "[", "t", "]"}], " ", 
+     RowBox[{"z", "[", "t", "]"}]}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"eq3", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"z", "'"}], "[", "t", "]"}], "==", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", " ", "[", "t", "]"}], 
+     RowBox[{"y", "[", "t", "]"}]}], "-", 
+    RowBox[{"b", " ", 
+     RowBox[{"z", "[", "t", "]"}]}]}]}]}]}], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"05898b94-8254-4009-bf04-baf854b759b0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["x", "\[Prime]",
+    MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+  RowBox[{"\[Sigma]", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"x", "[", "t", "]"}]}], "+", 
+     RowBox[{"y", "[", "t", "]"}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{3.953904187033443*^9, 3.953904347557639*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"45b5a96b-3b1f-49b4-96c1-08eabaefcbee"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["y", "\[Prime]",
+    MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+  RowBox[{
+   RowBox[{"r", " ", 
+    RowBox[{"x", "[", "t", "]"}]}], "-", 
+   RowBox[{"y", "[", "t", "]"}], "-", 
+   RowBox[{
+    RowBox[{"x", "[", "t", "]"}], " ", 
+    RowBox[{"z", "[", "t", "]"}]}]}]}]], "Output",
+ CellChangeTimes->{3.953904187033443*^9, 3.953904347560203*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"80107740-ed47-4226-8fb2-92de4cf7863f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["z", "\[Prime]",
+    MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"x", "[", "t", "]"}], " ", 
+    RowBox[{"y", "[", "t", "]"}]}], "-", 
+   RowBox[{"b", " ", 
+    RowBox[{"z", "[", "t", "]"}]}]}]}]], "Output",
+ CellChangeTimes->{3.953904187033443*^9, 3.9539043475609217`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"5d02b6e3-5ccb-4b04-b913-14c64aa3a419"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solve equations", "Subsubsection",
+ CellChangeTimes->{{3.9539041721443033`*^9, 
+  3.953904175040381*^9}},ExpressionUUID->"2f65dbf8-ead7-4f5b-8fba-\
+53a3b2a331c0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sol1", "=", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Sigma]val", "=", "10"}], ",", 
+       RowBox[{"bval", "=", 
+        RowBox[{"8", "/", "3"}]}], ",", 
+       RowBox[{"rval", "=", "28"}]}], "}"}], ",", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"eq1", ",", "eq2", ",", "eq3", ",", 
+          RowBox[{
+           RowBox[{"x", "[", "0", "]"}], "==", "0"}], ",", 
+          RowBox[{
+           RowBox[{"y", "[", "0", "]"}], "==", "1"}], ",", 
+          RowBox[{
+           RowBox[{"z", "[", "0", "]"}], "==", "0"}]}], "}"}], "/.", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"r", "->", "rval"}], ",", 
+          RowBox[{"\[Sigma]", "->", "\[Sigma]val"}], ",", 
+          RowBox[{"b", "->", "bval"}]}], "}"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}], ",", 
+         RowBox[{"z", "[", "t", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "1000"}], "}"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sol2", "=", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Sigma]val", "=", "10"}], ",", 
+       RowBox[{"bval", "=", 
+        RowBox[{"8", "/", "3"}]}]}], "}"}], ",", 
+     RowBox[{"ParametricNDSolve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"eq1", ",", "eq2", ",", "eq3", ",", 
+          RowBox[{
+           RowBox[{"x", "[", "0", "]"}], "==", "0"}], ",", 
+          RowBox[{
+           RowBox[{"y", "[", "0", "]"}], "==", "1"}], ",", 
+          RowBox[{
+           RowBox[{"z", "[", "0", "]"}], "==", "0"}]}], "}"}], "/.", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"r", "->", "rval"}], ",", 
+          RowBox[{"\[Sigma]", "->", "\[Sigma]val"}], ",", 
+          RowBox[{"b", "->", "bval"}]}], "}"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "50"}], "}"}], ",", "rval"}], "]"}]}], 
+    "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.953904337793601*^9, 3.9539043409763536`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"24d2864f-dbc2-4a38-95c5-318b49f7286f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Plot with variable time", "Subsubsection",
+ CellChangeTimes->{{3.953904184072981*^9, 3.953904184464044*^9}, {
+  3.953904309392865*^9, 
+  3.953904313025076*^9}},ExpressionUUID->"db4cdeae-4158-43db-9f68-\
+cdcf774c46c4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"endanimate", "=", "50"}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Row", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"x", "[", "t", "]"}], "/.", "sol1"}], ",", 
+              RowBox[{
+               RowBox[{"y", "[", "t", "]"}], "/.", "sol1"}], ",", 
+              RowBox[{
+               RowBox[{"z", "[", "t", "]"}], "/.", "sol1"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "tf"}], "}"}], ",", 
+            RowBox[{"ImageSize", "->", 
+             RowBox[{"{", 
+              RowBox[{"400", ",", "Automatic"}], "}"}]}], ",", 
+            RowBox[{"Ticks", "->", "None"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "endanimate"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "20"}], ",", "50"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"PlotStyle", "->", 
+             RowBox[{"Thickness", "[", "0.002", "]"}]}], ",", 
+            RowBox[{"PlotLabel", "->", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+              "\"\<The Lorenz equations \[Sigma]=10,b=8/3,r=28\>\"", ",", 
+               RowBox[{"FontSize", "->", "20"}]}], "]"}]}], ",", 
+            RowBox[{"PlotLegends", "->", 
+             RowBox[{"Placed", "[", 
+              RowBox[{
+               RowBox[{"LineLegend", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], 
+                  "}"}], ",", 
+                 RowBox[{"LegendLayout", "->", "\"\<Row\>\""}]}], "]"}], ",", 
+               
+               RowBox[{"{", 
+                RowBox[{"0.2", ",", "0.9"}], "}"}]}], "]"}]}]}], "]"}], ",", 
+          RowBox[{"ListPlot", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", 
+                 RowBox[{"#", "/.", 
+                  RowBox[{"sol1", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], "}"}], "&"}], "/@", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "[", "t", "]"}], ",", 
+               RowBox[{"y", "[", "t", "]"}], ",", 
+               RowBox[{"z", "[", "t", "]"}]}], "}"}]}], "/.", 
+            RowBox[{"t", "->", "tf"}]}], "]"}]}], "]"}], ",", 
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"ParametricPlot3D", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "[", "t", "]"}], ",", 
+               RowBox[{"y", "[", "t", "]"}], ",", 
+               RowBox[{"z", "[", "t", "]"}]}], "}"}], "/.", "sol1"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "tf"}], "}"}], ",", 
+            RowBox[{"ImageSize", "->", 
+             RowBox[{"{", 
+              RowBox[{"400", ",", "Automatic"}], "}"}]}], ",", 
+            RowBox[{"Ticks", "->", "None"}], ",", 
+            RowBox[{"PlotStyle", "->", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"Black", ",", "Thin"}], "]"}]}], ",", 
+            RowBox[{"PlotPoints", "->", "100"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "20"}], ",", "30"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "30"}], ",", "50"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "10"}], ",", "50"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"AxesLabel", "->", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"FontSize", "->", "20"}]}], "]"}], "&"}], "/@", 
+               RowBox[{"{", 
+                RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], 
+                "}"}]}], ")"}]}]}], "]"}], ",", 
+          RowBox[{"ListPointPlot3D", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}], ",", 
+                 RowBox[{"z", "[", "t", "]"}]}], "}"}], "/.", 
+               RowBox[{"sol1", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "/.", 
+              RowBox[{"t", "->", "tf"}]}], "}"}], ",", 
+            RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], "]"}]}], "}"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"tf", ",", "1", ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Simulation time\>\"", ",", 
+           RowBox[{"FontSize", "->", "20"}]}], "]"}]}], "}"}], ",", "1", ",", 
+       "endanimate"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.953904206676814*^9, 3.9539042135110283`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"897850f6-b03b-42e9-8fc1-77fd4db57c8c"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`tf$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`tf$$], 1, 
+       Style["Simulation time", FontSize -> 20]}, 1, 50}}, Typeset`size$$ = {
+    400.5, {567., 138.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`tf$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Row[{
+         Show[
+          Plot[{
+            ReplaceAll[
+             $CellContext`x[$CellContext`t], $CellContext`sol1], 
+            ReplaceAll[
+             $CellContext`y[$CellContext`t], $CellContext`sol1], 
+            ReplaceAll[
+             $CellContext`z[$CellContext`t], $CellContext`sol1]}, \
+{$CellContext`t, 0, $CellContext`tf$$}, ImageSize -> {400, Automatic}, Ticks -> 
+           None, PlotRange -> {{0, 50}, {-20, 50}}, PlotStyle -> 
+           Thickness[0.002], PlotLabel -> 
+           Style["The Lorenz equations \[Sigma]=10,b=8/3,r=28", FontSize -> 
+             20], PlotLegends -> Placed[
+             LineLegend[{"x", "y", "z"}, LegendLayout -> "Row"], {0.2, 0.9}]], 
+          ListPlot[
+           ReplaceAll[
+            Map[{{$CellContext`t, 
+               ReplaceAll[#, 
+                Part[$CellContext`sol1, 1]]}}& , {
+              $CellContext`x[$CellContext`t], 
+              $CellContext`y[$CellContext`t], 
+              $CellContext`z[$CellContext`t]}], $CellContext`t -> \
+$CellContext`tf$$]]], 
+         Show[
+          ParametricPlot3D[
+           ReplaceAll[{
+             $CellContext`x[$CellContext`t], 
+             $CellContext`y[$CellContext`t], 
+             $CellContext`z[$CellContext`t]}, $CellContext`sol1], \
+{$CellContext`t, 0, $CellContext`tf$$}, ImageSize -> {400, Automatic}, Ticks -> 
+           None, PlotStyle -> Directive[Black, Thin], PlotPoints -> 100, 
+           PlotRange -> {{-20, 30}, {-30, 50}, {-10, 50}}, AxesLabel -> 
+           Map[Style[#, FontSize -> 20]& , {"x", "y", "z"}]], 
+          ListPointPlot3D[{
+            ReplaceAll[
+             ReplaceAll[{
+               $CellContext`x[$CellContext`t], 
+               $CellContext`y[$CellContext`t], 
+               $CellContext`z[$CellContext`t]}, 
+              
+              Part[$CellContext`sol1, 
+               1]], $CellContext`t -> $CellContext`tf$$]}, PlotStyle -> 
+           Black]]}], "Specifications" :> {{{$CellContext`tf$$, 1, 
+          Style["Simulation time", FontSize -> 20]}, 1, 50}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{681., {395., 401.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.953904215746461*^9, 3.953904347894332*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"7107bc3c-bc46-4202-bfd9-b1431d86959f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Plot with variable r", "Subsubsection",
+ CellChangeTimes->{{3.953904317710664*^9, 
+  3.953904319760201*^9}},ExpressionUUID->"083a4dc8-65e7-4222-a754-\
+b7bcac6bff2a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tf", "=", "50"}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Row", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"x", "[", "rval", "]"}], "[", "t", "]"}], "/.", 
+               "sol2"}], ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"y", "[", "rval", "]"}], "[", "t", "]"}], "/.", 
+               "sol2"}], ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"z", "[", "rval", "]"}], "[", "t", "]"}], "/.", 
+               "sol2"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "tf"}], "}"}], ",", 
+            RowBox[{"ImageSize", "->", 
+             RowBox[{"{", 
+              RowBox[{"400", ",", "Automatic"}], "}"}]}], ",", 
+            RowBox[{"Ticks", "->", "Automatic"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "tf"}], "}"}], ",", "Automatic"}], "}"}]}], 
+            ",", 
+            RowBox[{"PlotStyle", "->", 
+             RowBox[{"Thickness", "[", "0.002", "]"}]}], ",", 
+            RowBox[{"PlotLegends", "->", 
+             RowBox[{"Placed", "[", 
+              RowBox[{
+               RowBox[{"LineLegend", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], 
+                  "}"}], ",", 
+                 RowBox[{"LegendLayout", "->", "\"\<Row\>\""}]}], "]"}], ",", 
+               
+               RowBox[{"{", 
+                RowBox[{"0.2", ",", "0.9"}], "}"}]}], "]"}]}]}], "]"}], ",", 
+          RowBox[{"ListPlot", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", 
+                 RowBox[{"#", "/.", 
+                  RowBox[{"sol1", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], "}"}], "&"}], "/@", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "[", "t", "]"}], ",", 
+               RowBox[{"y", "[", "t", "]"}], ",", 
+               RowBox[{"z", "[", "t", "]"}]}], "}"}]}], "/.", 
+            RowBox[{"t", "->", "tf"}]}], "]"}]}], "]"}], ",", 
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"ParametricPlot3D", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"x", "[", "rval", "]"}], "[", "t", "]"}], ",", 
+               RowBox[{
+                RowBox[{"y", "[", "rval", "]"}], "[", "t", "]"}], ",", 
+               RowBox[{
+                RowBox[{"z", "[", "rval", "]"}], "[", "t", "]"}]}], "}"}], "/.",
+              "sol2"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "tf"}], "}"}], ",", 
+            RowBox[{"ImageSize", "->", 
+             RowBox[{"{", 
+              RowBox[{"400", ",", "Automatic"}], "}"}]}], ",", 
+            RowBox[{"Ticks", "->", "None"}], ",", 
+            RowBox[{"PlotStyle", "->", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"Black", ",", "Thin"}], "]"}]}], ",", 
+            RowBox[{"PlotPoints", "->", "100"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "20"}], ",", "30"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "30"}], ",", "50"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "10"}], ",", "50"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"AxesLabel", "->", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"FontSize", "->", "20"}], ",", 
+                  RowBox[{"FontFamily", "->", "\"\<EB Garamond\>\""}]}], 
+                 "]"}], "&"}], "/@", 
+               RowBox[{"{", 
+                RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], 
+                "}"}]}], ")"}]}]}], "]"}], ",", 
+          RowBox[{"ListPointPlot3D", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"x", "[", "rval", "]"}], "[", "t", "]"}], ",", 
+                 RowBox[{
+                  RowBox[{"y", "[", "rval", "]"}], "[", "t", "]"}], ",", 
+                 RowBox[{
+                  RowBox[{"z", "[", "rval", "]"}], "[", "t", "]"}]}], "}"}], "/.", 
+               RowBox[{"sol2", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "/.", 
+              RowBox[{"t", "->", "tf"}]}], "}"}], ",", 
+            RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], "]"}]}], "}"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"rval", ",", "0.1", ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<r\>\"", ",", 
+           RowBox[{"FontFamily", "->", "\"\<EB Garamond\>\""}], ",", 
+           RowBox[{"FontSize", "->", "20"}]}], "]"}]}], "}"}], ",", "0.1", 
+       ",", "30"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[7]:=",ExpressionUUID->"ec24dfcb-e36b-4793-aebf-a93360dacdc0"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`rval$$ = 0.1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rval$$], 0.1, 
+       Style["r", FontFamily -> "EB Garamond", FontSize -> 20]}, 0.1, 30}}, 
+    Typeset`size$$ = {400.5, {544., 115.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`rval$$ = 0.1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Row[{
+         Show[
+          Plot[{
+            ReplaceAll[
+             $CellContext`x[$CellContext`rval$$][$CellContext`t], \
+$CellContext`sol2], 
+            ReplaceAll[
+             $CellContext`y[$CellContext`rval$$][$CellContext`t], \
+$CellContext`sol2], 
+            ReplaceAll[
+             $CellContext`z[$CellContext`rval$$][$CellContext`t], \
+$CellContext`sol2]}, {$CellContext`t, 0, 50}, ImageSize -> {400, Automatic}, 
+           Ticks -> Automatic, PlotRange -> {{0, 50}, Automatic}, PlotStyle -> 
+           Thickness[0.002], PlotLegends -> Placed[
+             LineLegend[{"x", "y", "z"}, LegendLayout -> "Row"], {0.2, 0.9}]], 
+          ListPlot[
+           ReplaceAll[
+            Map[{{$CellContext`t, 
+               ReplaceAll[#, 
+                Part[$CellContext`sol1, 1]]}}& , {
+              $CellContext`x[$CellContext`t], 
+              $CellContext`y[$CellContext`t], 
+              $CellContext`z[$CellContext`t]}], $CellContext`t -> 50]]], 
+         Show[
+          ParametricPlot3D[
+           ReplaceAll[{
+             $CellContext`x[$CellContext`rval$$][$CellContext`t], 
+             $CellContext`y[$CellContext`rval$$][$CellContext`t], 
+             $CellContext`z[$CellContext`rval$$][$CellContext`t]}, \
+$CellContext`sol2], {$CellContext`t, 0, 50}, ImageSize -> {400, Automatic}, 
+           Ticks -> None, PlotStyle -> Directive[Black, Thin], PlotPoints -> 
+           100, PlotRange -> {{-20, 30}, {-30, 50}, {-10, 50}}, AxesLabel -> 
+           Map[Style[#, FontSize -> 20, FontFamily -> "EB Garamond"]& , {
+             "x", "y", "z"}]], 
+          ListPointPlot3D[{
+            ReplaceAll[
+             ReplaceAll[{
+               $CellContext`x[$CellContext`rval$$][$CellContext`t], 
+               $CellContext`y[$CellContext`rval$$][$CellContext`t], 
+               $CellContext`z[$CellContext`rval$$][$CellContext`t]}, 
+              Part[$CellContext`sol2, 1]], $CellContext`t -> 50]}, PlotStyle -> 
+           Black]]}], "Specifications" :> {{{$CellContext`rval$$, 0.1, 
+          Style["r", FontFamily -> "EB Garamond", FontSize -> 20]}, 0.1, 30}},
+       "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{681., {372., 378.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.953904348091379*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"c277d066-7e09-4071-8f0d-770caa575ec4"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 366}, {Automatic, 154}},
+CellContext->Notebook,
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 3, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"973d7583-d6cb-46f9-9d19-f6b4ae1a7e1a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 169, 3, 45, "Subsubsection",ExpressionUUID->"3a6f2e52-cbf3-49b2-813c-fba93b5bff00"],
+Cell[CellGroupData[{
+Cell[774, 29, 989, 31, 73, "Input",ExpressionUUID->"05898b94-8254-4009-bf04-baf854b759b0"],
+Cell[1766, 62, 451, 12, 34, "Output",ExpressionUUID->"45b5a96b-3b1f-49b4-96c1-08eabaefcbee"],
+Cell[2220, 76, 488, 13, 34, "Output",ExpressionUUID->"80107740-ed47-4226-8fb2-92de4cf7863f"],
+Cell[2711, 91, 451, 12, 34, "Output",ExpressionUUID->"5d02b6e3-5ccb-4b04-b913-14c64aa3a419"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3211, 109, 168, 3, 45, "Subsubsection",ExpressionUUID->"2f65dbf8-ead7-4f5b-8fba-53a3b2a331c0"],
+Cell[3382, 114, 2363, 66, 136, "Input",ExpressionUUID->"24d2864f-dbc2-4a38-95c5-318b49f7286f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5782, 185, 223, 4, 45, "Subsubsection",ExpressionUUID->"db4cdeae-4158-43db-9f68-cdcf774c46c4"],
+Cell[CellGroupData[{
+Cell[6030, 193, 5503, 138, 346, "Input",ExpressionUUID->"897850f6-b03b-42e9-8fc1-77fd4db57c8c"],
+Cell[11536, 333, 3585, 76, 815, "Output",ExpressionUUID->"7107bc3c-bc46-4202-bfd9-b1431d86959f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15170, 415, 171, 3, 45, "Subsubsection",ExpressionUUID->"083a4dc8-65e7-4222-a754-b7bcac6bff2a"],
+Cell[CellGroupData[{
+Cell[15366, 422, 5716, 145, 388, "Input",ExpressionUUID->"ec24dfcb-e36b-4793-aebf-a93360dacdc0"],
+Cell[21085, 569, 3652, 74, 792, "Output",ExpressionUUID->"c277d066-7e09-4071-8f0d-770caa575ec4"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
