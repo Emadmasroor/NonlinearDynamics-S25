@@ -1,7 +1,5 @@
 # Nonlinear Dynamics and Chaos
-Class website of E91, Nonlinear Dynamics & Chaos
-
-Swarthmore Engineering, Spring 2025
+Class website of E91, Nonlinear Dynamics & Chaos @ Swarthmore Engineering, Spring 2025
 
 ## Schedule
 
