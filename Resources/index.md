@@ -56,6 +56,10 @@ Probability of finding a particular value of $x$; histogram or Probability Densi
 
 Run the code in this [NextJournal notebook](https://nextjournal.com/emad-masroor-teaching/orbit-diagram-for-the-logistic-map) or download the Python file [here](Resources/orbitdiagram.py) 
 
+{% highlight python %}
+{% include code/orbitdiagram.py %}
+{% endhighlight %}
+
 ### Interactive Wolfram Demonstrations
 
 - [Trajectories of the LogisticMap on a cobweb diagram](https://demonstrations.wolfram.com/TrajectoriesOfTheLogisticMap/)
