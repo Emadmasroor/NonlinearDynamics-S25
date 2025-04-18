@@ -2,8 +2,6 @@
 layout: default
 ---
 
-{:toc}
-
 ## The Lorenz equations
 
 ### Numerical Simulations of the Lorenz equations
