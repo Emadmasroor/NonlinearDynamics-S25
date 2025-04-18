@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: pagewithtoc
 ---
 
 ## The Lorenz equations
