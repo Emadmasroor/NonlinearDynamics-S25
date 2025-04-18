@@ -21,7 +21,7 @@ Find the Mathematica code [here](Resources/LorenzAttractor.nb)
 ### Python Code for the Lorenz equations
 
 {% highlight python %}
-{% include lorenz1.py %}
+{% include code/lorenz1.py %}
 {% endhighlight %}
 
 ### Visualizing the Lorenz Attractor
