@@ -32,11 +32,9 @@ Hyperlinks to lectures and homework assignments will be posted here.
 | [12.2 W 4/16](Lecs/E91.S25.Lec22.pdf)<br> [[In-class "exercise"](https://tinyurl.com/E91broccoli)] | Orbit Diagram of Logistic Map               |                    |                                                       |
 | 13.1 M 4/21                                                                                        |                                             |                    |                                                       |
 | 13.2 W 4/23                                                                                        |                                             |                    | [HW 8](HW/HW8.pdf)                                    |
-| 14.1                                                                                               |                                             |                    |                                                       |
-| 14.2                                                                                               |                                             |                    |                                                       |
-| 13.2                                                                                               |                                             |                    |                                                       |
-| 14.1                                                                                               |                                             |                    |                                                       |
-| 14.2                                                                                               |                                             |                    |                                                       |
+| 14.1 M 4/28                                                                                        |                                             |                    |                                                       |
+| 14.2 W 4/30                                                                                        |                                             |                    |                                                       |
+| 13.2 M 5/05                                                                                        |                                             |                    |                                                       |
 
 
 
