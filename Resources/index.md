@@ -1,5 +1,5 @@
 ---
-layout: pagewithtoc
+layout: resources
 ---
 
 ## The Lorenz equations
