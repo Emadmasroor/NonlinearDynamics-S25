@@ -1,6 +1,8 @@
 # NonlinearDynamics-S25
 Class website of E91, Nonlinear Dynamics & Chaos @ Swarthmore Engineering, Spring 2025
 
+[Resources](/Resources) • [Labs](/Labs) • [Syllabus](E91.S25.Syllabus.pdf)
+
 ## Schedule
 
 Hyperlinks to lectures and homework assignments will be posted here. 
