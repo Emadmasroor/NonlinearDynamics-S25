@@ -8,13 +8,13 @@ layout: resources
 
 #### The Lorenz attractor
 
-Find the Mathematica code [here](Resources/LorenzAttractor.nb)
+Find the Mathematica code [here](LorenzAttractor.nb)
 
 <iframe src="https://www.wolframcloud.com/obj/3e5c81a5-0472-4f7f-8a09-6657effb9a39?_embed=iframe" width="600" height="500"></iframe>
 
 #### x, y and z as functions of time
 
-Find the Mathematica code [here](Resources/LorenzAttractor.nb)
+Find the Mathematica code [here](LorenzAttractor.nb)
 
 <iframe src="https://www.wolframcloud.com/obj/01effb5e-28a4-4203-aa38-b04816f928d2?_embed=iframe" width="600" height="500"></iframe>
 
@@ -30,7 +30,7 @@ Find the Mathematica code [here](Resources/LorenzAttractor.nb)
 
 ### A Mathematical Model of Lorenz's Map
 
-Using the function $$z_{n+1} = 1 - |2z_n - 1|^{1/2}$$ to model the data from Lorenz's map. Find the Mathematica code [here](Resources/ModelLorenzMap.nb).
+Using the function $$z_{n+1} = 1 - |2z_n - 1|^{1/2}$$ to model the data from Lorenz's map. Find the Mathematica code [here](ModelLorenzMap.nb).
 
 <iframe src="https://www.wolframcloud.com/obj/a8886bf3-fa02-4501-baa0-40f5b3979192?_embed=iframe" width="600" height="500"></iframe>
 
@@ -38,7 +38,7 @@ Using the function $$z_{n+1} = 1 - |2z_n - 1|^{1/2}$$ to model the data from Lor
 
 ### x vs n
 
-Successive iteration of $$x_{n+1} = x_n r (1-x_n)$$ for 50,0000 steps. Find the Mathematica code [here](Resources/LogisticMap_xvsn.nb).
+Successive iteration of $$x_{n+1} = x_n r (1-x_n)$$ for 50,0000 steps. Find the Mathematica code [here](LogisticMap_xvsn.nb).
 
 <iframe src="https://www.wolframcloud.com/obj/a6fd182a-07de-4bfc-aac1-00d2bd25e5c7?_embed=iframe" width="600" height="500"></iframe>
 
@@ -54,7 +54,7 @@ Probability of finding a particular value of $x$; histogram or Probability Densi
 
 ### Make your own
 
-Run the code in this [NextJournal notebook](https://nextjournal.com/emad-masroor-teaching/orbit-diagram-for-the-logistic-map) or download the Python file [here](Resources/orbitdiagram.py) 
+Run the code in this [NextJournal notebook](https://nextjournal.com/emad-masroor-teaching/orbit-diagram-for-the-logistic-map) or download the Python file [here](orbitdiagram.py) 
 
 {% highlight python %}
 {% include code/orbitdiagram.py %}
