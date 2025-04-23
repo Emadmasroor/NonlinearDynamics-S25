@@ -73,7 +73,8 @@ Run the code in this [NextJournal notebook](https://nextjournal.com/emad-masroor
 
 ## The Double Pendulum
 
-- [Mathematica notebook for undamped double pendulum](DoublePendulum1.nb)]
+- [Mathematica notebook for undamped double pendulum](DoublePendulum1.nb)
+- [Mathematica notebook for damped double pendulum](DoublePendulum2.nb)
 
 
 
