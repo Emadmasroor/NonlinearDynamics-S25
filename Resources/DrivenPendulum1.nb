@@ -1,0 +1,523 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21740,        515]
+NotebookOptionsPosition[     20211,        478]
+NotebookOutlinePosition[     20627,        495]
+CellTagsIndexPosition[     20584,        492]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Driven Damped Simple Single Pendulum released from rest", "Section",
+ CellChangeTimes->{{3.954393220811523*^9, 3.954393245225935*^9}, {
+  3.954406642690639*^9, 
+  3.9544066456331778`*^9}},ExpressionUUID->"42c61aa9-d84b-44fc-882d-\
+1661b5541462"],
+
+Cell[CellGroupData[{
+
+Cell["Description", "Subsubsection",
+ CellChangeTimes->{{3.954406647138199*^9, 
+  3.9544066537381353`*^9}},ExpressionUUID->"813199e0-54ed-48a7-88bd-\
+8d1212935281"],
+
+Cell["\<\
+A simple pendulum is driven by an applied torque. What happens as you make \
+the torque stronger?\
+\>", "Text",
+ CellChangeTimes->{{3.954406655474256*^9, 
+  3.95440667392273*^9}},ExpressionUUID->"91e901d2-7e3e-45e1-bd21-\
+4a3719d33e3b"],
+
+Cell[TextData[{
+ "The parameters we use are: \n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Omega]", "0"], " ", "=", " ", 
+    RowBox[{"3", 
+     RowBox[{"\[Omega]", "/", "2"}]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c536e45f-e3d1-4423-bf6d-d668d04ba2fd"],
+ ", where \[Omega] is the driving frequency and has been set equal to 2\[Pi]  \
+for convenience.\n\[Beta] = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Omega]", "0"], "/", "4"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "3dcae46d-f0a3-49d2-92e2-f1f5d2689ee7"],
+ " so that this system is underdamped.\n\[Gamma] is varied."
+}], "Text",
+ CellChangeTimes->{{3.9543945499620037`*^9, 
+  3.9543946123164177`*^9}},ExpressionUUID->"41e2f8b8-9bc0-4b0d-a1cd-\
+a821a2a27d44"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Angle and Angular Velocity vs time", "Subsubsection",
+ CellChangeTimes->{{3.954393299841837*^9, 3.954393302443239*^9}, {
+  3.9543945422100687`*^9, 3.954394546399622*^9}, {3.9544065614753227`*^9, 
+  3.954406564179434*^9}},ExpressionUUID->"2d5f5ea2-3f0d-4094-b3e8-\
+ed55bc155aa0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"eq1", ",", "sol", ",", "p1"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Omega]", "=", 
+         RowBox[{"2", "\[Pi]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"eq1", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"\[Theta]", "''"}], "[", "t", "]"}], "+", 
+           RowBox[{"2", "\[Beta]", " ", 
+            RowBox[{
+             RowBox[{"\[Theta]", "'"}], "[", "t", "]"}]}], "+", 
+           RowBox[{
+            SuperscriptBox["\[Omega]0", "2"], 
+            RowBox[{"Sin", "[", 
+             RowBox[{"\[Theta]", "[", "t", "]"}], "]"}]}]}], "==", 
+          RowBox[{"\[Gamma]", " ", 
+           SuperscriptBox["\[Omega]0", "2"], 
+           RowBox[{"Cos", "[", 
+            RowBox[{"\[Omega]", " ", "t"}], "]"}]}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"sol", "=", 
+         RowBox[{"ParametricNDSolve", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"eq1", ",", 
+             RowBox[{
+              RowBox[{"\[Theta]", "[", "0", "]"}], "==", "\[Theta]0"}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"\[Theta]", "'"}], "[", "0", "]"}], "==", "0"}]}], 
+            "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]", ",", 
+             RowBox[{"\[Theta]", "'"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "0", ",", "tfinal"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "\[Beta]", ",", "\[Omega]0", ",", "\[Gamma]", ",", "\[Theta]0"}], 
+            "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Row", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Column", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Plot", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  FractionBox["1", "Degree"], 
+                  RowBox[{
+                   RowBox[{"\[Theta]", "[", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{
+                    FractionBox["3", "2"], "\[Omega]"}], "4"], ",", 
+                    RowBox[{
+                    FractionBox["3", "2"], "\[Omega]"}], ",", "\[Gamma]val", 
+                    ",", "\[Theta]0val"}], "]"}], "[", "t", "]"}]}], "/.", 
+                 "sol"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"t", ",", "0", ",", "tfinal"}], "}"}], ",", 
+                RowBox[{"GridLines", "->", "Automatic"}], ",", 
+                RowBox[{"AspectRatio", "->", 
+                 RowBox[{"1", "/", "3"}]}], ",", 
+                RowBox[{"PlotLabel", "->", 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    "\"\<Angle \[Theta] (degrees) vs. time\>\"", ",", 
+                    RowBox[{"FontSize", "->", "14"}]}], "]"}], "}"}], "]"}]}],
+                 ",", 
+                RowBox[{"ImageSize", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"800", ",", "300"}], "}"}]}], ",", 
+                RowBox[{"PlotRange", "->", "All"}], ",", 
+                RowBox[{"PlotPoints", "->", "100"}]}], "]"}], ",", 
+              RowBox[{"Plot", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"\[Theta]", "'"}], "[", 
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{
+                    FractionBox["3", "2"], "\[Omega]"}], "4"], ",", 
+                    RowBox[{
+                    FractionBox["3", "2"], "\[Omega]"}], ",", "\[Gamma]val", 
+                    ",", "\[Theta]0val"}], "]"}], "[", "t", "]"}], "/.", 
+                 "sol"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"t", ",", "0", ",", "tfinal"}], "}"}], ",", 
+                RowBox[{"ImageSize", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"800", ",", "100"}], "}"}]}], ",", 
+                RowBox[{"AspectRatio", "->", "Full"}], ",", 
+                RowBox[{"PlotLabel", "->", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                  "\"\<Angular velocity \!\(\*OverscriptBox[\(\[Theta]\), \(.\
+\)]\) vs. time\>\"", ",", 
+                   RowBox[{"FontSize", "->", "14"}]}], "]"}]}], ",", 
+                RowBox[{"PlotPoints", "->", "100"}]}], "]"}]}], "}"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Animate", "[", 
+            RowBox[{
+             RowBox[{"Evaluate", "@", 
+              RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"{", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"PointSize", "[", "0.05", "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Thickness", "[", ".01", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Sin", "[", "\[Theta]", "]"}], ",", 
+                    RowBox[{"-", " ", 
+                    RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}], "}"}]}], "}"}],
+                     "]"}], "/.", 
+                    RowBox[{"{", 
+                    RowBox[{"\[Theta]", "->", 
+                    RowBox[{
+                    RowBox[{"\[Theta]", "[", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"1.5", "\[Omega]"}], "4"], ",", 
+                    RowBox[{
+                    FractionBox["3", "2"], "\[Omega]"}], ",", "\[Gamma]val", 
+                    ",", "\[Theta]0val"}], "]"}], "[", "t", "]"}]}], "}"}]}], 
+                    "/.", "sol"}], "/.", 
+                    RowBox[{"t", "->", "tcurrent"}]}]}], "}"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<Time = \>\"", ",", "tcurrent"}], "}"}], 
+                    "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", ".8"}], ",", "0.9"}], "}"}]}], "]"}], 
+                   "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                RowBox[{"PlotRange", "->", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1.1"}], ",", "1.1"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1.1"}], ",", "1.1"}], "}"}]}], "}"}]}], ",", 
+                RowBox[{"AspectRatio", "->", "Full"}]}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"tcurrent", ",", "0.1", ",", "tfinal"}], "}"}], ",", 
+             RowBox[{"AnimationRepetitions", "->", "1"}], ",", 
+             RowBox[{"AnimationRate", "->", ".5"}]}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}]}]}]}], "\[IndentingNewLine]", "]"}]}], 
+    "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]val", ",", "0.2", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Forcing Magnitude \[Gamma]\>\"", ",", 
+         RowBox[{"FontSize", "->", "14"}]}], "]"}]}], "}"}], ",", "0.01", ",",
+      "1.2"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tfinal", ",", "6", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Length of simulation\>\"", ",", 
+         RowBox[{"FontSize", "->", "14"}]}], "]"}]}], "}"}], ",", "3", ",", 
+     "100", ",", "1"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]0val", ",", 
+       RowBox[{"10", " ", "Degree"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Initial Angle\>\"", ",", 
+         RowBox[{"FontSize", "->", "14"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "90"}], " ", "Degree"}], ",", 
+     RowBox[{"90", " ", "Degree"}], ",", 
+     RowBox[{"5", " ", "Degree"}]}], "}"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdzkEoQwEAxvE3TbssTQ5EidJCrRwc9OLJQq2tNZsitSamva333kpZroSW
+YihaT2qjnpmiFFphU9phlsOKaFLbhVlLJm0o7HuHr9/x+zeOOY0TZQRB1JYG
+tarZOtqV63n+VTbBU0OnCqarPN3Qs1vUwTdF1gGNnyEOqqnLSahveZiGrt6u
+ObgdiPBQEvZtwuj1qB+SNUkB/rwkw3D/whKB8SwdhTrG+gQZXniFFZpADq73
+O95hm+n7S/xNGIaZkpmgbxwe3H/Q8LFQFKW8Ug5yNt4JOyqpPFtSkJ38waAQ
+k3LoMilksL69XA4XCwoKkmdyNTyyezVwhbQOwKub40GYUC6PQHcwZIPmajcL
+tfN7M3BITyxAk98imu+bWoJ36ZhoKnW7AeMJdgs2S9Z2YKvGHIB8g/0QEqvn
+ov/OZtc5
+  "],
+ CellLabel->"In[90]:=",ExpressionUUID->"2c49ccc7-e260-4516-acb3-77cc292a68fc"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`tfinal$$ = 6, $CellContext`\[Gamma]val$$ = 
+    0.2, $CellContext`\[Theta]0val$$ = 10 Degree, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Gamma]val$$], 0.2, 
+       Style["Forcing Magnitude \[Gamma]", FontSize -> 14]}, 0.01, 1.2}, {{
+       Hold[$CellContext`tfinal$$], 6, 
+       Style["Length of simulation", FontSize -> 14]}, 3, 100, 1}, {{
+       Hold[$CellContext`\[Theta]0val$$], 10 Degree, 
+       Style["Initial Angle", FontSize -> 14]}, (-90) Degree, 90 Degree, 5 
+      Degree}}, Typeset`size$$ = {1207., {250., 256.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`tfinal$$ = 6, $CellContext`\[Gamma]val$$ = 
+        0.2, $CellContext`\[Theta]0val$$ = 10 Degree}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`eq1$, $CellContext`sol$, $CellContext`p1$}, 
+        With[{$CellContext`\[Omega]$ = 2 Pi}, $CellContext`eq1$ = 
+          Derivative[2][$CellContext`\[Theta]][$CellContext`t] + 
+            2 $CellContext`\[Beta] 
+             Derivative[
+              1][$CellContext`\[Theta]][$CellContext`t] + $CellContext`\
+\[Omega]0^2 Sin[
+               $CellContext`\[Theta][$CellContext`t]] == \
+$CellContext`\[Gamma] $CellContext`\[Omega]0^2 
+            Cos[$CellContext`\[Omega]$ $CellContext`t]; $CellContext`sol$ = 
+          ParametricNDSolve[{$CellContext`eq1$, $CellContext`\[Theta][
+              0] == $CellContext`\[Theta]0, 
+             Derivative[1][$CellContext`\[Theta]][0] == 
+             0}, {$CellContext`\[Theta], 
+             Derivative[1][$CellContext`\[Theta]]}, {$CellContext`t, 
+             0, $CellContext`tfinal$$}, {$CellContext`\[Beta], $CellContext`\
+\[Omega]0, $CellContext`\[Gamma], $CellContext`\[Theta]0}]; Row[{
+            Column[{
+              Plot[
+               
+               ReplaceAll[(1/
+                 Degree) $CellContext`\[Theta][(3/2) $CellContext`\[Omega]$/
+                  4, (3/2) $CellContext`\[Omega]$, \
+$CellContext`\[Gamma]val$$, $CellContext`\[Theta]0val$$][$CellContext`t], \
+$CellContext`sol$], {$CellContext`t, 0, $CellContext`tfinal$$}, GridLines -> 
+               Automatic, AspectRatio -> 1/3, PlotLabel -> Row[{
+                  Style[
+                  "Angle \[Theta] (degrees) vs. time", FontSize -> 14]}], 
+               ImageSize -> {800, 300}, PlotRange -> All, PlotPoints -> 100], 
+              
+              Plot[
+               ReplaceAll[
+                Derivative[
+                1][$CellContext`\[Theta]][(3/2) $CellContext`\[Omega]$/
+                 4, (3/2) $CellContext`\[Omega]$, $CellContext`\[Gamma]val$$, \
+$CellContext`\[Theta]0val$$][$CellContext`t], $CellContext`sol$], \
+{$CellContext`t, 0, $CellContext`tfinal$$}, ImageSize -> {800, 100}, 
+               AspectRatio -> Full, PlotLabel -> 
+               Style["Angular velocity \!\(\*OverscriptBox[\(\[Theta]\), \
+\(.\)]\) vs. time", FontSize -> 14], PlotPoints -> 100]}], 
+            Animate[
+             Evaluate[
+              Graphics[{{
+                 PointSize[0.05], 
+                 Point[{0, 0}]}, {
+                 Thickness[0.01], 
+                 ReplaceAll[
+                  ReplaceAll[
+                   ReplaceAll[
+                    Line[{{0, 0}, {
+                    Sin[$CellContext`\[Theta]], -
+                    Cos[$CellContext`\[Theta]]}}], {$CellContext`\[Theta] -> \
+$CellContext`\[Theta][
+                    1.5 $CellContext`\[Omega]$/
+                    4, (3/2) $CellContext`\[Omega]$, \
+$CellContext`\[Gamma]val$$, $CellContext`\[Theta]0val$$][$CellContext`t]}], \
+$CellContext`sol$], $CellContext`t -> $CellContext`tcurrent]}, {
+                 Text[
+                  Row[{"Time = ", $CellContext`tcurrent}], {-0.8, 0.9}]}}, 
+               PlotRange -> {{-1.1, 1.1}, {-1.1, 1.1}}, AspectRatio -> 
+               Full]], {$CellContext`tcurrent, 0.1, $CellContext`tfinal$$}, 
+             AnimationRepetitions -> 1, AnimationRate -> 0.5]}]]], 
+      "Specifications" :> {{{$CellContext`\[Gamma]val$$, 0.2, 
+          Style["Forcing Magnitude \[Gamma]", FontSize -> 14]}, 0.01, 
+         1.2}, {{$CellContext`tfinal$$, 6, 
+          Style["Length of simulation", FontSize -> 14]}, 3, 100, 
+         1}, {{$CellContext`\[Theta]0val$$, 10 Degree, 
+          Style["Initial Angle", FontSize -> 14]}, (-90) Degree, 90 Degree, 5 
+         Degree}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1251., {324., 329.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.9543938263272*^9, 3.954393849216147*^9}, {
+   3.954393893497775*^9, 3.95439394367416*^9}, {3.9543939954301662`*^9, 
+   3.954394007275106*^9}, {3.9543940845745153`*^9, 3.9543940990413733`*^9}, {
+   3.9543941398407784`*^9, 3.954394147219236*^9}, 3.95439433348763*^9, {
+   3.954394379599144*^9, 3.9543944232331333`*^9}, 3.954394627235263*^9, {
+   3.954394686238715*^9, 3.954394697143364*^9}, 3.954394727935054*^9, {
+   3.9543947843691673`*^9, 3.954394867750699*^9}, {3.95439497603331*^9, 
+   3.95439508827066*^9}, {3.954402058461939*^9, 3.954402077322523*^9}, {
+   3.9544021155869102`*^9, 3.954402173142941*^9}, {3.9544052954117937`*^9, 
+   3.954405377617733*^9}, 3.954405435320631*^9, {3.9544054732569*^9, 
+   3.954405494047563*^9}, {3.954405524248858*^9, 3.9544055322123747`*^9}, {
+   3.954405574099248*^9, 3.9544055956899767`*^9}, {3.954405676164762*^9, 
+   3.954405714348363*^9}, {3.9544057583129683`*^9, 3.95440579237821*^9}, {
+   3.954405826620079*^9, 3.954405872997171*^9}, {3.9544059060892363`*^9, 
+   3.9544059657309647`*^9}, 3.954406078151413*^9, {3.954406140451089*^9, 
+   3.954406158758575*^9}, {3.954406188943959*^9, 3.9544062061211443`*^9}, {
+   3.954406283710477*^9, 3.954406355578664*^9}, {3.9544063958702707`*^9, 
+   3.954406451282028*^9}, {3.9544064842504177`*^9, 3.9544065105137863`*^9}, 
+   3.954406693280078*^9, {3.9544067242173967`*^9, 3.954406727784093*^9}, 
+   3.954406782429645*^9},
+ CellLabel->"Out[90]=",ExpressionUUID->"634b9a74-ea0e-432f-a8ea-245eb4dca05b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Cloud Deploy", "Subsubsection",
+ CellChangeTimes->{{3.954406798091277*^9, 
+  3.954406800345491*^9}},ExpressionUUID->"54f3c9b5-7c27-4a1f-9af4-\
+9ef2871149b3"],
+
+Cell["\<\
+URL is at \
+https://www.wolframcloud.com/obj/9cec4503-f3af-44d0-83c4-08800ca24392\
+\>", "Text",
+ CellChangeTimes->{{3.9544069950748034`*^9, 
+  3.954406996650469*^9}},ExpressionUUID->"5bbac735-a235-445e-9678-\
+a97215d58651"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"CloudPublish", "[", "]"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.9544068012190733`*^9, 3.954406816320334*^9}, 
+   3.9544069997665997`*^9},ExpressionUUID->"03332818-c0ed-4bda-b694-\
+f2e1d11e1654"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/obj/9cec4503-f3af-44d0-83c4-08800ca24392\"\
+", "https://www.wolframcloud.com/obj/9cec4503-f3af-44d0-83c4-08800ca24392"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/obj/9cec4503-f3af-44d0-83c4-08800ca24392"],
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{3.9544068288782053`*^9},
+ CellLabel->"Out[92]=",ExpressionUUID->"87e356c2-6c34-42d0-bdd5-0e690f521939"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1902, 866},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+CellContext->Notebook,
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 3, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0c6ae06a-d280-4ae5-a0cf-ef44388418db"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 251, 4, 67, "Section",ExpressionUUID->"42c61aa9-d84b-44fc-882d-1661b5541462"],
+Cell[CellGroupData[{
+Cell[856, 30, 164, 3, 45, "Subsubsection",ExpressionUUID->"813199e0-54ed-48a7-88bd-8d1212935281"],
+Cell[1023, 35, 246, 6, 35, "Text",ExpressionUUID->"91e901d2-7e3e-45e1-bd21-4a3719d33e3b"],
+Cell[1272, 43, 814, 22, 104, "Text",ExpressionUUID->"41e2f8b8-9bc0-4b0d-a1cd-a821a2a27d44"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2123, 70, 284, 4, 45, "Subsubsection",ExpressionUUID->"2d5f5ea2-3f0d-4094-b3e8-ed55bc155aa0"],
+Cell[CellGroupData[{
+Cell[2432, 78, 9577, 228, 600, "Input",ExpressionUUID->"2c49ccc7-e260-4516-acb3-77cc292a68fc"],
+Cell[12012, 308, 6925, 126, 672, "Output",ExpressionUUID->"634b9a74-ea0e-432f-a8ea-245eb4dca05b"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18986, 440, 163, 3, 45, "Subsubsection",ExpressionUUID->"54f3c9b5-7c27-4a1f-9af4-9ef2871149b3"],
+Cell[19152, 445, 233, 6, 35, "Text",ExpressionUUID->"5bbac735-a235-445e-9678-a97215d58651"],
+Cell[CellGroupData[{
+Cell[19410, 455, 238, 5, 30, "Input",ExpressionUUID->"03332818-c0ed-4bda-b694-f2e1d11e1654"],
+Cell[19651, 462, 520, 11, 37, "Output",ExpressionUUID->"87e356c2-6c34-42d0-bdd5-0e690f521939"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

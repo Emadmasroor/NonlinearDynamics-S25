@@ -76,5 +76,9 @@ Run the code in this [NextJournal notebook](https://nextjournal.com/emad-masroor
 - [Mathematica notebook for undamped double pendulum](DoublePendulum1.nb)
 - [Mathematica notebook for damped double pendulum](DoublePendulum2.nb)
 
+## Driven Damped Single Pendulum
 
+- [Mathematica notebook for driven damped single pendulum](DrivenPendulum1.nb)
+
+<iframe src="https://www.wolframcloud.com/obj/9cec4503-f3af-44d0-83c4-08800ca24392" width="600" height="900"></iframe>
 
