@@ -2,6 +2,12 @@
 layout: resources
 ---
 
+## The Phase Plane
+
+### Lotka-Volterra Population Dynamics
+
+<iframe src="https://www.wolframcloud.com/obj/b6ddb6e6-4baf-4d70-b70e-9b40136ab531" width="600" height="500"></iframe>
+
 ## The Lorenz equations
 
 ### Numerical Simulations of the Lorenz equations
