@@ -1,0 +1,1617 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     67516,       1609]
+NotebookOptionsPosition[     65852,       1569]
+NotebookOutlinePosition[     66267,       1586]
+CellTagsIndexPosition[     66224,       1583]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Double Pendulum with Damping", "Section",
+ CellChangeTimes->{{3.954351428569248*^9, 
+  3.954351432239016*^9}},ExpressionUUID->"1feb172a-12fb-4f24-b54c-\
+ad06b752b443"],
+
+Cell[CellGroupData[{
+
+Cell["Problem Description", "Subsection",
+ CellChangeTimes->{{3.954351825496961*^9, 
+  3.954351857711755*^9}},ExpressionUUID->"73659654-65f1-4696-864c-\
+84d46c7f581b"],
+
+Cell["\<\
+A compound double pendulum is released from rest in the following shape.\
+\>", "Text",
+ CellChangeTimes->{{3.954351859144498*^9, 
+  3.954351885528713*^9}},ExpressionUUID->"d391c6e7-61c2-4fe9-b776-\
+b1b76fe06936"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"L1", "=", "1"}], ",", 
+     RowBox[{"m1", "=", "1"}], ",", 
+     RowBox[{"L2", "=", "1"}], ",", 
+     RowBox[{"m2", "=", "1"}]}], "}"}], ",", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pendulum1", ",", "pendulum2"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"pendulum1", "=", 
+       RowBox[{
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"L1", " ", 
+              RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+             RowBox[{
+              RowBox[{"-", "L1"}], " ", 
+              RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}]}], "}"}], 
+         "]"}], "/.", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]1", "->", 
+          RowBox[{"180", " ", "Degree"}]}], "}"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"pendulum2", "=", 
+       RowBox[{
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"L1", " ", 
+              RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+             RowBox[{
+              RowBox[{"-", "L1"}], " ", 
+              RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"L1", " ", 
+               RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+              RowBox[{"L2", " ", 
+               RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "L1"}], " ", 
+               RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+              RowBox[{"L2", " ", 
+               RowBox[{"Cos", "[", "\[Theta]2", "]"}]}]}]}], "}"}]}], "}"}], 
+         "]"}], "/.", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\[Theta]1", "->", 
+           RowBox[{"180", "Degree"}]}], ",", 
+          RowBox[{"\[Theta]2", "->", 
+           RowBox[{"90", "Degree"}]}]}], "}"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"PointSize", "[", "0.1", "]"}], ",", 
+            RowBox[{"Point", "[", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.03", "]"}], ",", 
+            RowBox[{
+             RowBox[{"ColorData", "[", 
+              RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", "pendulum1"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.03", "]"}], ",", 
+            RowBox[{
+             RowBox[{"ColorData", "[", 
+              RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", "pendulum2"}], "}"}]}], 
+         "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"PlotRange", "->", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.1"}], ",", "1.1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.1"}], ",", "1.1"}], "}"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Frame", "->", "False"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"ImageSize", "->", 
+         RowBox[{"{", 
+          RowBox[{"300", ",", "200"}], "}"}]}], ",", 
+        RowBox[{"ImagePadding", "->", "None"}]}], "]"}]}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.954351913033411*^9, 3.9543520646128263`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"0918d0db-1c82-441d-9a44-ce060ea6e1c2"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {PointSize[0.1], PointBox[{0, 0}]}, 
+   {Hue[0.58, 1, 0.5], Thickness[0.03], LineBox[{{0, 0}, {0, 1}}]}, 
+   {Hue[0.12, 1, 0.9], Thickness[0.03], LineBox[{{0, 1}, {1, 1}}]}},
+  Frame->False,
+  ImagePadding->None,
+  ImageSize->{300, 200},
+  PlotRange->{{-0.1, 1.1}, {-0.1, 1.1}}]], "Output",
+ CellChangeTimes->{{3.9543520010623217`*^9, 3.954352064942609*^9}, 
+   3.954381830468893*^9, 3.954390690210989*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"a94d03c5-8557-4bce-92bd-e2d1bef22e6d"]
+}, Open  ]],
+
+Cell[TextData[{
+ "It is then subject to gravity and a frictional force modeled as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "=", 
+    RowBox[{"c", " ", 
+     OverscriptBox["\[Theta]", "."]}]}], TraditionalForm]], "InlineFormula",
+  FormatType->TraditionalForm,ExpressionUUID->
+  "14e89cdf-a323-4bce-8de9-4116fc3a5555"],
+ ", where c is chosen to be 0.008.\nMasses and lengths are set to be equal to \
+unity, with ",
+ StyleBox["g = 9.81", "InlineFormula"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.954352074969771*^9, 3.954352122154355*^9}, {
+  3.954352152970673*^9, 3.954352160306799*^9}, {3.9543521932194433`*^9, 
+  3.954352208186269*^9}},ExpressionUUID->"6f73cf10-1cba-488a-a4d5-\
+39284129ba7d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solve the system and plot the results.", "Subsection",
+ CellChangeTimes->{{3.954390808202076*^9, 3.9543908203653193`*^9}, {
+  3.954392977262074*^9, 
+  3.9543929818552837`*^9}},ExpressionUUID->"8597533f-368d-44c4-b1e2-\
+29cc87e2480b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "eq1", ",", "eq2", ",", "T", ",", "V", ",", "\[CapitalXi]1", ",", 
+     "\[CapitalXi]2", ",", "v1", ",", "v2", ",", "r1", ",", "r2", ",", "L", 
+     ",", "sol", ",", "pendulum1", ",", "pendulum2", ",", "tfinal", ",", 
+     "max", ",", "min"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"r1", "[", 
+      RowBox[{"\[Theta]1_", ",", "\[Theta]2_"}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        FractionBox["L1", "2"], 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["L1", "2"]}], 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"r2", "[", 
+      RowBox[{"\[Theta]1_", ",", "\[Theta]2_"}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"L1", " ", 
+         RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+        RowBox[{
+         FractionBox["L2", "2"], 
+         RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "L1"}], " ", 
+         RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+        RowBox[{
+         FractionBox["L2", "2"], 
+         RowBox[{"Cos", "[", "\[Theta]2", "]"}]}]}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"v1", "=", 
+     RowBox[{"D", "[", 
+      RowBox[{
+       RowBox[{"r1", "[", 
+        RowBox[{
+         RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+         RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], ",", "t"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"v2", "=", 
+     RowBox[{"D", "[", 
+      RowBox[{
+       RowBox[{"r2", "[", 
+        RowBox[{
+         RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+         RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], ",", "t"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"V", "=", 
+     RowBox[{
+      RowBox[{"m1", " ", "g", " ", 
+       RowBox[{
+        RowBox[{"r1", "[", 
+         RowBox[{
+          RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+          RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "+", 
+      RowBox[{"m2", " ", "g", " ", 
+       RowBox[{
+        RowBox[{"r2", "[", 
+         RowBox[{
+          RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+          RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}]}]}], " ", ";", 
+    RowBox[{"(*", 
+     RowBox[{"m", " ", "g", " ", "y"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"T", "=", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], "m1", " ", 
+       RowBox[{"Dot", "[", 
+        RowBox[{"v1", ",", "v1"}], "]"}]}], "+", 
+      RowBox[{
+       FractionBox["1", "2"], "m2", " ", 
+       RowBox[{"Dot", "[", 
+        RowBox[{"v2", ",", "v2"}], "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalXi]1", "=", 
+     RowBox[{
+      RowBox[{"-", "c"}], " ", 
+      RowBox[{
+       RowBox[{"\[Theta]1", "'"}], "[", "t", "]"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalXi]2", "=", 
+     RowBox[{
+      RowBox[{"-", "c"}], " ", 
+      RowBox[{
+       RowBox[{"\[Theta]2", "'"}], "[", "t", "]"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"L", "=", 
+     RowBox[{"T", "-", "V"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"eq1", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"D", "[", 
+        RowBox[{
+         RowBox[{"D", "[", 
+          RowBox[{"L", ",", 
+           RowBox[{
+            RowBox[{"\[Theta]1", "'"}], "[", "t", "]"}]}], "]"}], ",", "t"}], 
+        "]"}], "-", 
+       RowBox[{"D", "[", 
+        RowBox[{"L", ",", 
+         RowBox[{"\[Theta]1", "[", "t", "]"}]}], "]"}]}], "==", 
+      "\[CapitalXi]1"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"eq2", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"D", "[", 
+        RowBox[{
+         RowBox[{"D", "[", 
+          RowBox[{"L", ",", 
+           RowBox[{
+            RowBox[{"\[Theta]2", "'"}], "[", "t", "]"}]}], "]"}], ",", "t"}], 
+        "]"}], "-", 
+       RowBox[{"D", "[", 
+        RowBox[{"L", ",", 
+         RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}]}], "==", 
+      "\[CapitalXi]2"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"tfinal", "=", "10"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"sol", "=", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"rules", "=", 
+         RowBox[{"{", 
+          RowBox[{"g", "->", "9.81"}], "}"}]}], "}"}], ",", 
+       RowBox[{"ParametricNDSolve", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"eq1", "/.", "rules"}], ",", 
+           RowBox[{"eq2", "/.", "rules"}], ",", 
+           RowBox[{
+            RowBox[{"\[Theta]1", "[", "0", "]"}], "==", "\[Theta]10"}], ",", 
+           RowBox[{
+            RowBox[{"\[Theta]2", "[", "0", "]"}], "==", "\[Theta]20"}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Theta]1", "'"}], "[", "0", "]"}], "==", "0"}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Theta]2", "'"}], "[", "0", "]"}], "==", "0"}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\[Theta]1", ",", "\[Theta]2", ",", 
+           RowBox[{"\[Theta]1", "'"}], ",", 
+           RowBox[{"\[Theta]2", "'"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "0", ",", "tfinal"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", "\[Theta]10", 
+           ",", "\[Theta]20"}], "}"}]}], "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Manipulate", "[", 
+     RowBox[{
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"L1", "=", "1"}], ",", 
+          RowBox[{"m1", "=", "1"}], ",", 
+          RowBox[{"L2", "=", "1"}], ",", 
+          RowBox[{"m2", "=", "1"}], ",", 
+          RowBox[{"\[Theta]max", "=", 
+           RowBox[{"5", " ", "360"}]}], ",", 
+          RowBox[{"\[Theta]min", "=", 
+           RowBox[{
+            RowBox[{"-", "3"}], " ", "360"}]}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Column", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Row", "@", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Show", "[", 
+                 RowBox[{
+                  RowBox[{"ListPlot", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Mod", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", "]"}],
+                     "/.", "sol"}], ",", 
+                    RowBox[{"2", "\[Pi]"}], ",", 
+                    RowBox[{"-", "\[Pi]"}]}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "'"}], "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", "]"}],
+                     "/.", "sol"}]}], "}"}], "/.", 
+                    RowBox[{"t", "->", "#"}]}], ")"}], "&"}], "/@", 
+                    RowBox[{"Range", "[", 
+                    RowBox[{"0", ",", "tf", ",", "0.002"}], "]"}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Mod", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", "]"}],
+                     "/.", "sol"}], ",", 
+                    RowBox[{"2", "\[Pi]"}], ",", 
+                    RowBox[{"-", "\[Pi]"}]}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "'"}], "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", "]"}],
+                     "/.", "sol"}]}], "}"}], "/.", 
+                    RowBox[{"t", "->", "#"}]}], ")"}], "&"}], "/@", 
+                    RowBox[{"Range", "[", 
+                    RowBox[{"0", ",", "tf", ",", "0.002"}], "]"}]}]}], 
+                    "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+                    
+                    RowBox[{"Frame", "->", "True"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"PlotStyle", "->", 
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"PlotRange", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "20"}], ",", "20"}], "}"}]}], "}"}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"ImageSize", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"600", ",", "400"}], "}"}]}]}], "]"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"ListPlot", "[", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Mod", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", "]"}],
+                     ",", 
+                    RowBox[{"2", "\[Pi]"}], ",", 
+                    RowBox[{"-", "\[Pi]"}]}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "'"}], "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", 
+                    "]"}]}], "}"}], "/.", "sol"}], "/.", 
+                    RowBox[{"t", "->", "tf"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Mod", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", "]"}],
+                     ",", 
+                    RowBox[{"2", "\[Pi]"}], ",", 
+                    RowBox[{"-", "\[Pi]"}]}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "'"}], "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", 
+                    "]"}]}], "}"}], "/.", "sol"}], "/.", 
+                    RowBox[{"t", "->", "tf"}]}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+                    
+                    RowBox[{"PlotStyle", "->", 
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"PlotMarkers", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<OpenMarkers\>\"", ",", " ", "Medium"}], 
+                    "}"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+                 "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"Module", "[", 
+                 RowBox[{
+                  RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"pendulum1", "=", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"L1", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "L1"}], " ", 
+                    RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}]}], 
+                    "}"}], "]"}], "/.", 
+                    RowBox[{"{", 
+                    RowBox[{"\[Theta]1", "->", 
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", 
+                    "]"}]}], "}"}]}], "/.", "sol"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"pendulum2", "=", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"L1", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "L1"}], " ", 
+                    RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"L1", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+                    RowBox[{"L2", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "L1"}], " ", 
+                    RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+                    RowBox[{"L2", " ", 
+                    RowBox[{"Cos", "[", "\[Theta]2", "]"}]}]}]}], "}"}]}], 
+                    "}"}], "]"}], "/.", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "->", 
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", 
+                    "]"}]}], ",", 
+                    RowBox[{"\[Theta]2", "->", 
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "[", 
+                    RowBox[{
+                    "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", 
+                    "]"}]}]}], "}"}]}], "/.", "sol"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"PointSize", "[", "0.01", "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", "pendulum1"}], "}"}],
+                     ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", "pendulum2"}], 
+                    "}"}]}], "\[IndentingNewLine]", "}"}], "/.", 
+                    RowBox[{"t", "->", "tf"}]}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"PlotRange", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{"L1", "+", "L2"}], ")"}]}], ",", 
+                    RowBox[{"(", 
+                    RowBox[{"L1", "+", "L2"}], ")"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{"L1", "+", "L2"}], ")"}]}], ",", 
+                    RowBox[{"(", 
+                    RowBox[{"L1", "+", "L2"}], ")"}]}], "}"}]}], "}"}]}], ",",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"Frame", "->", "False"}], "\[IndentingNewLine]", 
+                    ",", 
+                    RowBox[{"ImageSize", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"300", ",", "200"}], "}"}]}]}], "]"}]}]}], 
+                 "]"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"tf", ",", "0.05", ",", "\"\<Time \>\""}], "}"}], ",",
+                "0.05", ",", "tfinal"}], "}"}]}], "\[IndentingNewLine]", 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Plot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 FractionBox["1", "Degree"], 
+                 RowBox[{
+                  RowBox[{"\[Theta]1", "[", 
+                   RowBox[{
+                   "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", 
+                  "]"}]}], "/.", "sol"}], ",", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["1", "Degree"], 
+                 RowBox[{
+                  RowBox[{"\[Theta]2", "[", 
+                   RowBox[{
+                   "L1", ",", "m1", ",", "L2", ",", "m2", ",", "c", ",", 
+                    "\[Theta]10", ",", "\[Theta]20"}], "]"}], "[", "t", 
+                  "]"}]}], "/.", "sol"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", "0", ",", "tfinal"}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"ImageSize", "->", 
+              RowBox[{"{", 
+               RowBox[{"900", ",", "200"}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"AspectRatio", "->", "Full"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Ticks", "->", 
+              RowBox[{"{", 
+               RowBox[{"Automatic", ",", 
+                RowBox[{"Range", "[", 
+                 RowBox[{"\[Theta]min", ",", "\[Theta]max", ",", "90"}], 
+                 "]"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"GridLines", "->", 
+              RowBox[{"{", 
+               RowBox[{"Automatic", ",", 
+                RowBox[{"Range", "[", 
+                 RowBox[{"\[Theta]min", ",", "\[Theta]max", ",", "90"}], 
+                 "]"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"PlotStyle", "->", 
+              RowBox[{"ColorData", "[", 
+               RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"PlotLegends", "->", 
+              RowBox[{"Placed", "[", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"FontSize", "->", "16"}]}], "]"}], "&"}], "/@", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<\!\(\*SubscriptBox[\(\[Theta]\), \(1\)]\)\>\"", ",", 
+                    "\"\<\!\(\*SubscriptBox[\(\[Theta]\), \(2\)]\)\>\""}], 
+                   "}"}]}], ")"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0.1", ",", "0.85"}], "}"}]}], "]"}]}]}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"c", ",", "0.008", ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Damping constant c\>\"", ",", 
+            RowBox[{"FontSize", "->", "16"}]}], "]"}]}], "}"}], ",", "0.004", 
+        ",", "0.5"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\[Theta]10", ",", 
+          RowBox[{"180", " ", "Degree"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Starting Angle Pendulum 1\>\"", ",", 
+            RowBox[{"FontSize", "->", "16"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"5", " ", "Degree"}], ",", 
+        RowBox[{"180", " ", "Degree"}], ",", 
+        RowBox[{"5", "Degree"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\[Theta]20", ",", 
+          RowBox[{"90", " ", "Degree"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Starting Angle Pendulum 2\>\"", ",", 
+            RowBox[{"FontSize", "->", "16"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"5", " ", "Degree"}], ",", 
+        RowBox[{"180", " ", "Degree"}], ",", 
+        RowBox[{"5", "Degree"}]}], "}"}]}], "\[IndentingNewLine]", "]"}]}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQAGIQ/eNK50P/sreORt9M3oPo3erePgFAukmgLhVECxcI
+bQgC0o37I8B00+MZL0E0C2/BKxDtYXk3KBhIn3z+BkwzpX4uBNENK08VgeiA
+5Zav0oB0mrb7JxBdxrf8N4hm+q/HmA6k7+iLs4Loist27CD6GEuFAIi20JGQ
+BtEG69gVQPSWdf9MQXT67DRrEK3w0d8JREcJ3vECy8/5HwiixZo3hoH5cnYx
+IJrJvaYERLNze5eC6Emy8i0g2oSPrxdEv1jkPRFEf7nNNglET3lhMB1Ef4pX
+XgCiE5TFl4Dou/4GYLqfV209iDbmqNgAom2itm0H0Yu/e+0B0RpxsgfA/io9
+dgxE79nYcgNEW7pMBtNszEl3weZOvPACRAMAX7W61w==
+  "],
+ CellLabel->"In[45]:=",ExpressionUUID->"5c84a729-bc7d-46ec-a639-0998d83c10e6"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`c$$ = 0.008, $CellContext`\[Theta]10$$ = 
+    180 Degree, $CellContext`\[Theta]20$$ = 90 Degree, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`c$$], 0.008, 
+       Style["Damping constant c", FontSize -> 16]}, 0.004, 0.5}, {{
+       Hold[$CellContext`\[Theta]10$$], 180 Degree, 
+       Style["Starting Angle Pendulum 1", FontSize -> 16]}, 5 Degree, 180 
+      Degree, 5 Degree}, {{
+       Hold[$CellContext`\[Theta]20$$], 90 Degree, 
+       Style["Starting Angle Pendulum 2", FontSize -> 16]}, 5 Degree, 180 
+      Degree, 5 Degree}}, Typeset`size$$ = {
+    944., {345.134033203125, 350.865966796875}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`c$$ = 0.008, $CellContext`\[Theta]10$$ = 
+        180 Degree, $CellContext`\[Theta]20$$ = 90 Degree}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      With[{$CellContext`L1$ = 1, $CellContext`m1$ = 1, $CellContext`L2$ = 
+         1, $CellContext`m2$ = 1, $CellContext`\[Theta]max$ = 
+         5 360, $CellContext`\[Theta]min$ = (-3) 360}, 
+        Column[{
+          Manipulate[
+           Row[{
+             Show[
+              ListPlot[{
+                Map[ReplaceAll[{
+                   Mod[
+                    ReplaceAll[
+                    $CellContext`\[Theta]1[$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], \
+$CellContext`sol$2767986], 2 Pi, -Pi], 
+                   ReplaceAll[
+                    Derivative[
+                    1][$CellContext`\[Theta]1][$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], \
+$CellContext`sol$2767986]}, $CellContext`t -> #]& , 
+                 Range[0, $CellContext`tf, 0.002]], 
+                Map[ReplaceAll[{
+                   Mod[
+                    ReplaceAll[
+                    $CellContext`\[Theta]2[$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], \
+$CellContext`sol$2767986], 2 Pi, -Pi], 
+                   ReplaceAll[
+                    Derivative[
+                    1][$CellContext`\[Theta]2][$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], \
+$CellContext`sol$2767986]}, $CellContext`t -> #]& , 
+                 Range[0, $CellContext`tf, 0.002]]}, Frame -> True, PlotStyle -> 
+               ColorData[81, "ColorList"], 
+               PlotRange -> {{-Pi, Pi}, {-20, 20}}, ImageSize -> {600, 400}], 
+              
+              ListPlot[{{
+                 ReplaceAll[
+                  ReplaceAll[{
+                    Mod[
+                    $CellContext`\[Theta]1[$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], 2 Pi, -
+                    Pi], 
+                    Derivative[
+                    1][$CellContext`\[Theta]1][$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t]}, \
+$CellContext`sol$2767986], $CellContext`t -> $CellContext`tf]}, {
+                 ReplaceAll[
+                  ReplaceAll[{
+                    Mod[
+                    $CellContext`\[Theta]2[$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], 2 Pi, -
+                    Pi], 
+                    Derivative[
+                    1][$CellContext`\[Theta]2][$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t]}, \
+$CellContext`sol$2767986], $CellContext`t -> $CellContext`tf]}}, PlotStyle -> 
+               ColorData[81, "ColorList"], 
+               PlotMarkers -> {"OpenMarkers", Medium}]], 
+             Module[{}, $CellContext`pendulum1$2767986 = ReplaceAll[
+                 ReplaceAll[
+                  
+                  Line[{{0, 
+                    0}, {$CellContext`L1$ 
+                    Sin[$CellContext`\[Theta]1], (-$CellContext`L1$) 
+                    Cos[$CellContext`\[Theta]1]}}], {$CellContext`\[Theta]1 -> \
+$CellContext`\[Theta]1[$CellContext`L1$, $CellContext`m1$, $CellContext`L2$, \
+$CellContext`m2$, $CellContext`c$$, $CellContext`\[Theta]10$$, $CellContext`\
+\[Theta]20$$][$CellContext`t]}], $CellContext`sol$2767986]; \
+$CellContext`pendulum2$2767986 = ReplaceAll[
+                 ReplaceAll[
+                  
+                  Line[{{$CellContext`L1$ 
+                    Sin[$CellContext`\[Theta]1], (-$CellContext`L1$) 
+                    Cos[$CellContext`\[Theta]1]}, {$CellContext`L1$ 
+                    Sin[$CellContext`\[Theta]1] + $CellContext`L2$ 
+                    Sin[$CellContext`\[Theta]2], (-$CellContext`L1$) 
+                    Cos[$CellContext`\[Theta]1] - $CellContext`L2$ 
+                    Cos[$CellContext`\[Theta]2]}}], {$CellContext`\[Theta]1 -> \
+$CellContext`\[Theta]1[$CellContext`L1$, $CellContext`m1$, $CellContext`L2$, \
+$CellContext`m2$, $CellContext`c$$, $CellContext`\[Theta]10$$, $CellContext`\
+\[Theta]20$$][$CellContext`t], $CellContext`\[Theta]2 -> \
+$CellContext`\[Theta]2[$CellContext`L1$, $CellContext`m1$, $CellContext`L2$, \
+$CellContext`m2$, $CellContext`c$$, $CellContext`\[Theta]10$$, $CellContext`\
+\[Theta]20$$][$CellContext`t]}], $CellContext`sol$2767986]; Graphics[
+                ReplaceAll[{{
+                   PointSize[0.01], 
+                   Point[{0, 0}]}, {
+                   Thickness[0.01], 
+                   Part[
+                    ColorData[81, "ColorList"], 
+                    1], $CellContext`pendulum1$2767986}, {
+                   Thickness[0.01], 
+                   Part[
+                    ColorData[81, "ColorList"], 
+                    2], $CellContext`pendulum2$2767986}}, $CellContext`t -> \
+$CellContext`tf], 
+                PlotRange -> {{-($CellContext`L1$ + $CellContext`L2$), \
+$CellContext`L1$ + $CellContext`L2$}, {-($CellContext`L1$ + \
+$CellContext`L2$), $CellContext`L1$ + $CellContext`L2$}}, Frame -> False, 
+                ImageSize -> {300, 200}]]}], {{$CellContext`tf, 0.05, 
+             "Time "}, 0.05, $CellContext`tfinal$2767986}], 
+          Plot[{
+            
+            ReplaceAll[(1/
+              Degree) $CellContext`\[Theta]1[$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], \
+$CellContext`sol$2767986], 
+            
+            ReplaceAll[(1/
+              Degree) $CellContext`\[Theta]2[$CellContext`L1$, \
+$CellContext`m1$, $CellContext`L2$, $CellContext`m2$, $CellContext`c$$, \
+$CellContext`\[Theta]10$$, $CellContext`\[Theta]20$$][$CellContext`t], \
+$CellContext`sol$2767986]}, {$CellContext`t, 0, $CellContext`tfinal$2767986}, 
+           ImageSize -> {900, 200}, AspectRatio -> Full, 
+           Ticks -> {Automatic, 
+             Range[$CellContext`\[Theta]min$, $CellContext`\[Theta]max$, 90]},
+            GridLines -> {Automatic, 
+             Range[$CellContext`\[Theta]min$, $CellContext`\[Theta]max$, 90]},
+            PlotStyle -> ColorData[81, "ColorList"], PlotLegends -> Placed[
+             Map[
+             Style[#, FontSize -> 16]& , {
+              "\!\(\*SubscriptBox[\(\[Theta]\), \(1\)]\)", 
+               "\!\(\*SubscriptBox[\(\[Theta]\), \(2\)]\)"}], {0.1, 
+             0.85}]]}]], "Specifications" :> {{{$CellContext`c$$, 0.008, 
+          Style["Damping constant c", FontSize -> 16]}, 0.004, 
+         0.5}, {{$CellContext`\[Theta]10$$, 180 Degree, 
+          Style["Starting Angle Pendulum 1", FontSize -> 16]}, 5 Degree, 180 
+         Degree, 5 Degree}, {{$CellContext`\[Theta]20$$, 90 Degree, 
+          Style["Starting Angle Pendulum 2", FontSize -> 16]}, 5 Degree, 180 
+         Degree, 5 Degree}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{988., {419., 425.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.954391530550263*^9, {3.954391561134097*^9, 3.954391571030568*^9}, {
+   3.9543916524711637`*^9, 3.95439169700482*^9}, {3.95439175484137*^9, 
+   3.954391778777555*^9}, 3.954391984763867*^9, 3.9543921068939753`*^9, {
+   3.954392159696447*^9, 3.954392170129711*^9}, 3.95439221113905*^9, {
+   3.9543923116560497`*^9, 3.9543923537167063`*^9}, 3.95439254666728*^9, 
+   3.9543925804042673`*^9, 3.954392630944409*^9, 3.9543927194034758`*^9, {
+   3.954392750677774*^9, 3.954392773066029*^9}, {3.9543928771511*^9, 
+   3.954392902754146*^9}},
+ CellLabel->"Out[45]=",ExpressionUUID->"583ba0bb-753e-4863-894b-2fe097695461"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Alternative plotting strategy avoiding \[OpenCurlyDoubleQuote]mod\
+\[CloseCurlyDoubleQuote]", "Subsection",
+ CellChangeTimes->{{3.954390771445167*^9, 3.954390800326394*^9}, {
+  3.954392962678108*^9, 
+  3.95439296861304*^9}},ExpressionUUID->"059955fa-c6ae-46a9-a3f2-\
+d7f2c3a11402"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "eq1", ",", "eq2", ",", "T", ",", "V", ",", "\[CapitalXi]1", ",", 
+     "\[CapitalXi]2", ",", "v1", ",", "v2", ",", "r1", ",", "r2", ",", "L", 
+     ",", "sol", ",", "pendulum1", ",", "pendulum2", ",", "tfinal", ",", 
+     "max", ",", "min"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"r1", "[", 
+      RowBox[{"\[Theta]1_", ",", "\[Theta]2_"}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        FractionBox["L1", "2"], 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["L1", "2"]}], 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"r2", "[", 
+      RowBox[{"\[Theta]1_", ",", "\[Theta]2_"}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"L1", " ", 
+         RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+        RowBox[{
+         FractionBox["L2", "2"], 
+         RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "L1"}], " ", 
+         RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+        RowBox[{
+         FractionBox["L2", "2"], 
+         RowBox[{"Cos", "[", "\[Theta]2", "]"}]}]}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"v1", "=", 
+     RowBox[{"D", "[", 
+      RowBox[{
+       RowBox[{"r1", "[", 
+        RowBox[{
+         RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+         RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], ",", "t"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"v2", "=", 
+     RowBox[{"D", "[", 
+      RowBox[{
+       RowBox[{"r2", "[", 
+        RowBox[{
+         RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+         RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], ",", "t"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"V", "=", 
+     RowBox[{
+      RowBox[{"m1", " ", "g", " ", 
+       RowBox[{
+        RowBox[{"r1", "[", 
+         RowBox[{
+          RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+          RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "+", 
+      RowBox[{"m2", " ", "g", " ", 
+       RowBox[{
+        RowBox[{"r2", "[", 
+         RowBox[{
+          RowBox[{"\[Theta]1", "[", "t", "]"}], ",", 
+          RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}]}]}], " ", ";", 
+    RowBox[{"(*", 
+     RowBox[{"m", " ", "g", " ", "y"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"T", "=", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], "m1", " ", 
+       RowBox[{"Dot", "[", 
+        RowBox[{"v1", ",", "v1"}], "]"}]}], "+", 
+      RowBox[{
+       FractionBox["1", "2"], "m2", " ", 
+       RowBox[{"Dot", "[", 
+        RowBox[{"v2", ",", "v2"}], "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalXi]1", "=", 
+     RowBox[{
+      RowBox[{"-", "c"}], " ", 
+      RowBox[{
+       RowBox[{"\[Theta]1", "'"}], "[", "t", "]"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalXi]2", "=", 
+     RowBox[{
+      RowBox[{"-", "c"}], " ", 
+      RowBox[{
+       RowBox[{"\[Theta]2", "'"}], "[", "t", "]"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"L", "=", 
+     RowBox[{"T", "-", "V"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"eq1", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"D", "[", 
+        RowBox[{
+         RowBox[{"D", "[", 
+          RowBox[{"L", ",", 
+           RowBox[{
+            RowBox[{"\[Theta]1", "'"}], "[", "t", "]"}]}], "]"}], ",", "t"}], 
+        "]"}], "-", 
+       RowBox[{"D", "[", 
+        RowBox[{"L", ",", 
+         RowBox[{"\[Theta]1", "[", "t", "]"}]}], "]"}]}], "==", 
+      "\[CapitalXi]1"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"eq2", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"D", "[", 
+        RowBox[{
+         RowBox[{"D", "[", 
+          RowBox[{"L", ",", 
+           RowBox[{
+            RowBox[{"\[Theta]2", "'"}], "[", "t", "]"}]}], "]"}], ",", "t"}], 
+        "]"}], "-", 
+       RowBox[{"D", "[", 
+        RowBox[{"L", ",", 
+         RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}]}], "==", 
+      "\[CapitalXi]2"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"tfinal", "=", "5"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"sol", "=", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"rules", "=", 
+         RowBox[{"{", 
+          RowBox[{"g", "->", "9.81"}], "}"}]}], "}"}], ",", 
+       RowBox[{"ParametricNDSolve", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"eq1", "/.", "rules"}], ",", 
+           RowBox[{"eq2", "/.", "rules"}], ",", 
+           RowBox[{
+            RowBox[{"\[Theta]1", "[", "0", "]"}], "==", "\[Pi]"}], ",", 
+           RowBox[{
+            RowBox[{"\[Theta]2", "[", "0", "]"}], "==", 
+            RowBox[{"0.5", "\[Pi]"}]}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Theta]1", "'"}], "[", "0", "]"}], "==", "0"}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Theta]2", "'"}], "[", "0", "]"}], "==", "0"}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\[Theta]1", ",", "\[Theta]2", ",", 
+           RowBox[{"\[Theta]1", "'"}], ",", 
+           RowBox[{"\[Theta]2", "'"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "0", ",", "tfinal"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}], "}"}]}], 
+        "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"L1", "=", "1"}], ",", 
+        RowBox[{"m1", "=", "1"}], ",", 
+        RowBox[{"L2", "=", "1"}], ",", 
+        RowBox[{"m2", "=", "1"}], ",", 
+        RowBox[{"c", "=", "0.008"}], ",", 
+        RowBox[{"\[Theta]max", "=", "210"}], ",", 
+        RowBox[{"\[Theta]min", "=", 
+         RowBox[{
+          RowBox[{"-", "3"}], " ", "360"}]}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Animate", "[", 
+       RowBox[{
+        RowBox[{"Row", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Show", "[", 
+            RowBox[{
+             RowBox[{"ParametricPlot", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    FractionBox["1", "Degree"], 
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], "/.", "sol"}], ",", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "'"}], "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}], "/.", "sol"}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    FractionBox["1", "Degree"], 
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], "/.", "sol"}], ",", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "'"}], "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}], "/.", "sol"}]}], "}"}]}], "}"}], 
+               ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "tshowfinal"}], "}"}], ",", 
+               RowBox[{"PlotLegends", "->", 
+                RowBox[{"Placed", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\"\<1\>\"", ",", "\"\<2\>\""}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0.1", ",", "0.1"}], "}"}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"PlotRange", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\[Theta]min", ",", "\[Theta]max"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "25"}], ",", "25"}], "}"}]}], "}"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"Ticks", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Range", "[", 
+                   RowBox[{"\[Theta]min", ",", "\[Theta]max", ",", "180"}], 
+                   "]"}], ",", "Automatic"}], "}"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"GridLines", "->", "None"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"PlotStyle", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Directive", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", "Thin"}], "]"}], ",", 
+                  RowBox[{"Directive", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", "Thin"}], "]"}]}], 
+                 "}"}]}], ",", "\[IndentingNewLine]", 
+               RowBox[{"PlotStyle", "->", 
+                RowBox[{"Thickness", "[", "0.005", "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"AspectRatio", "->", 
+                RowBox[{"1", "/", "2"}]}], ",", "\[IndentingNewLine]", 
+               RowBox[{"AxesLabel", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "\"\<\[Theta]\>\"", ",", 
+                  "\"\<\!\(\*OverscriptBox[\(\[Theta]\), \(.\)]\)\>\""}], 
+                 "}"}]}], ",", "\[IndentingNewLine]", 
+               RowBox[{"PlotPoints", "->", "100"}], ",", 
+               RowBox[{"Epilog", "->", 
+                RowBox[{"Text", "[", 
+                 RowBox[{
+                  RowBox[{"\"\<Time is \>\"", "<>", 
+                   RowBox[{"ToString", "@", "tshowfinal"}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "800"}], ",", "10"}], "}"}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ImageSize", "->", 
+                RowBox[{"{", 
+                 RowBox[{"300", ",", "200"}], "}"}]}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"ListPlot", "[", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    FractionBox["1", "Degree"], 
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "'"}], "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], "}"}], "/.", "sol"}], "/.", 
+                   RowBox[{"t", "->", "tshowfinal"}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    FractionBox["1", "Degree"], 
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "'"}], "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], "}"}], "/.", "sol"}], "/.", 
+                   RowBox[{"t", "->", "tshowfinal"}]}], "}"}]}], 
+                "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"PlotStyle", "->", 
+                RowBox[{"ColorData", "[", 
+                 RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}]}]}], 
+              "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Module", "[", 
+            RowBox[{
+             RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"pendulum1", "=", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Line", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"L1", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "L1"}], " ", 
+                    RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}]}], 
+                   "}"}], "]"}], "/.", 
+                 RowBox[{"{", 
+                  RowBox[{"\[Theta]1", "->", 
+                   RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], "}"}]}], "/.", "sol"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"pendulum2", "=", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Line", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"L1", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "L1"}], " ", 
+                    RowBox[{"Cos", "[", "\[Theta]1", "]"}]}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"L1", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+                    RowBox[{"L2", " ", 
+                    RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "L1"}], " ", 
+                    RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+                    RowBox[{"L2", " ", 
+                    RowBox[{"Cos", "[", "\[Theta]2", "]"}]}]}]}], "}"}]}], 
+                   "}"}], "]"}], "/.", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"\[Theta]1", "->", 
+                    RowBox[{
+                    RowBox[{"\[Theta]1", "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}], ",", 
+                   RowBox[{"\[Theta]2", "->", 
+                    RowBox[{
+                    RowBox[{"\[Theta]2", "[", 
+                    RowBox[{"L1", ",", "m1", ",", "L2", ",", "m2", ",", "c"}],
+                     "]"}], "[", "t", "]"}]}]}], "}"}]}], "/.", "sol"}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"PointSize", "[", "0.01", "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", "pendulum1"}], "}"}],
+                    ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"ColorData", "[", 
+                    RowBox[{"81", ",", "\"\<ColorList\>\""}], "]"}], "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", "pendulum2"}], 
+                    "}"}]}], "\[IndentingNewLine]", "}"}], "/.", 
+                 RowBox[{"t", "->", "tshowfinal"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"PlotRange", "->", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Frame", "->", "False"}], "\[IndentingNewLine]", ",", 
+                
+                RowBox[{"ImageSize", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"300", ",", "200"}], "}"}]}]}], "]"}]}]}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"tshowfinal", ",", "0.01", ",", "\"\<Time \>\""}], "}"}], 
+          ",", "0.01", ",", "tfinal"}], "}"}], ",", 
+        RowBox[{"AnimationRepetitions", "->", "1"}], ",", 
+        RowBox[{"AnimationRate", "->", "0.5"}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",\
+
+ CellChangeTimes->{{3.954351525371168*^9, 3.95435168717784*^9}, {
+  3.954351720074046*^9, 3.954351730869315*^9}, {3.954352301341063*^9, 
+  3.954352302305681*^9}, {3.954392525914732*^9, 3.954392527814024*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"49d4ec81-18c7-4ad3-a7fb-13d918de606d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`tshowfinal$$ = 5., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`tshowfinal$$], 0.01, "Time "}, 0.01, 5}}, 
+    Typeset`size$$ = {600., {98., 102.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`tshowfinal$$ = 0.01}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Row[{
+         Show[
+          ParametricPlot[{{
+             
+             ReplaceAll[(1/Degree) $CellContext`\[Theta]1[
+               1, 1, 1, 1, 0.008][$CellContext`t], $CellContext`sol$2016685], 
+             
+             ReplaceAll[
+              Derivative[1][$CellContext`\[Theta]1][
+              1, 1, 1, 1, 0.008][$CellContext`t], $CellContext`sol$2016685]}, {
+             
+             ReplaceAll[(1/Degree) $CellContext`\[Theta]2[
+               1, 1, 1, 1, 0.008][$CellContext`t], $CellContext`sol$2016685], 
+             
+             ReplaceAll[
+              Derivative[1][$CellContext`\[Theta]2][
+              1, 1, 1, 1, 
+               0.008][$CellContext`t], $CellContext`sol$2016685]}}, \
+{$CellContext`t, 0, $CellContext`tshowfinal$$}, PlotLegends -> 
+           Placed[{"1", "2"}, {0.1, 0.1}], 
+           PlotRange -> {{-1080, 210}, {-25, 25}}, Ticks -> {
+             Range[-1080, 210, 180], Automatic}, GridLines -> None, PlotStyle -> {
+             Directive[
+              Part[
+               ColorData[81, "ColorList"], 1], Thin], 
+             Directive[
+              Part[
+               ColorData[81, "ColorList"], 2], Thin]}, PlotStyle -> 
+           Thickness[0.005], AspectRatio -> 1/2, 
+           AxesLabel -> {
+            "\[Theta]", "\!\(\*OverscriptBox[\(\[Theta]\), \(.\)]\)"}, 
+           PlotPoints -> 100, Epilog -> 
+           Text["Time is " <> ToString[$CellContext`tshowfinal$$], {-800, 
+             10}], ImageSize -> {300, 200}], 
+          ListPlot[{{
+             ReplaceAll[
+              
+              ReplaceAll[{(1/Degree) $CellContext`\[Theta]1[
+                 1, 1, 1, 1, 0.008][$CellContext`t], 
+                Derivative[1][$CellContext`\[Theta]1][
+                1, 1, 1, 1, 
+                 0.008][$CellContext`t]}, $CellContext`sol$2016685], \
+$CellContext`t -> $CellContext`tshowfinal$$]}, {
+             ReplaceAll[
+              
+              ReplaceAll[{(1/Degree) $CellContext`\[Theta]2[
+                 1, 1, 1, 1, 0.008][$CellContext`t], 
+                Derivative[1][$CellContext`\[Theta]2][
+                1, 1, 1, 1, 
+                 0.008][$CellContext`t]}, $CellContext`sol$2016685], \
+$CellContext`t -> $CellContext`tshowfinal$$]}}, PlotStyle -> 
+           ColorData[81, "ColorList"]]], 
+         Module[{}, $CellContext`pendulum1$2016685 = ReplaceAll[
+             ReplaceAll[
+              
+              Line[{{0, 0}, {
+                1 Sin[$CellContext`\[Theta]1], (-1) 
+                 Cos[$CellContext`\[Theta]1]}}], {$CellContext`\[Theta]1 -> \
+$CellContext`\[Theta]1[
+                1, 1, 1, 1, 
+                 0.008][$CellContext`t]}], $CellContext`sol$2016685]; \
+$CellContext`pendulum2$2016685 = ReplaceAll[
+             ReplaceAll[
+              
+              Line[{{1 Sin[$CellContext`\[Theta]1], (-1) 
+                 Cos[$CellContext`\[Theta]1]}, {
+                1 Sin[$CellContext`\[Theta]1] + 
+                 1 Sin[$CellContext`\[Theta]2], (-1) 
+                  Cos[$CellContext`\[Theta]1] - 1 
+                 Cos[$CellContext`\[Theta]2]}}], {$CellContext`\[Theta]1 -> \
+$CellContext`\[Theta]1[
+                1, 1, 1, 1, 
+                 0.008][$CellContext`t], $CellContext`\[Theta]2 -> \
+$CellContext`\[Theta]2[
+                1, 1, 1, 1, 
+                 0.008][$CellContext`t]}], $CellContext`sol$2016685]; Graphics[
+            ReplaceAll[{{
+               PointSize[0.01], 
+               Point[{0, 0}]}, {
+               Thickness[0.01], 
+               Part[
+                ColorData[81, "ColorList"], 
+                1], $CellContext`pendulum1$2016685}, {
+               Thickness[0.01], 
+               Part[
+                ColorData[81, "ColorList"], 
+                
+                2], $CellContext`pendulum2$2016685}}, $CellContext`t -> \
+$CellContext`tshowfinal$$], PlotRange -> {{-2, 2}, {-3, 2}}, Frame -> False, 
+            ImageSize -> {300, 200}]]}], 
+      "Specifications" :> {{{$CellContext`tshowfinal$$, 0.01, "Time "}, 0.01, 
+         5, AnimationRepetitions -> 1, AnimationRate -> 0.5, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{644., {134., 140.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.95435146022219*^9, {3.954351590546829*^9, 3.954351687467557*^9}, 
+   3.954351731187945*^9, 3.954352303192143*^9, 3.9543818304884977`*^9, 
+   3.954390690266678*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"81e93b35-bf0c-49c8-9533-f79a0c2b4ef6"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1267, 934},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+CellContext->Notebook,
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f3525d4f-ac3b-4773-ada5-152dd9ea1e20"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 173, 3, 67, "Section",ExpressionUUID->"1feb172a-12fb-4f24-b54c-ad06b752b443"],
+Cell[CellGroupData[{
+Cell[778, 29, 167, 3, 54, "Subsection",ExpressionUUID->"73659654-65f1-4696-864c-84d46c7f581b"],
+Cell[948, 34, 222, 5, 35, "Text",ExpressionUUID->"d391c6e7-61c2-4fe9-b776-b1b76fe06936"],
+Cell[CellGroupData[{
+Cell[1195, 43, 4117, 111, 262, "Input",ExpressionUUID->"0918d0db-1c82-441d-9a44-ce060ea6e1c2"],
+Cell[5315, 156, 516, 11, 217, "Output",ExpressionUUID->"a94d03c5-8557-4bce-92bd-e2d1bef22e6d"]
+}, Open  ]],
+Cell[5846, 170, 697, 17, 61, "Text",ExpressionUUID->"6f73cf10-1cba-488a-a4d5-39284129ba7d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6580, 192, 239, 4, 54, "Subsection",ExpressionUUID->"8597533f-368d-44c4-b1e2-29cc87e2480b"],
+Cell[CellGroupData[{
+Cell[6844, 200, 23850, 570, 1464, "Input",ExpressionUUID->"5c84a729-bc7d-46ec-a639-0998d83c10e6"],
+Cell[30697, 772, 9906, 187, 863, "Output",ExpressionUUID->"583ba0bb-753e-4863-894b-2fe097695461"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40652, 965, 287, 5, 54, "Subsection",ExpressionUUID->"059955fa-c6ae-46a9-a3f2-d7f2c3a11402"],
+Cell[CellGroupData[{
+Cell[40964, 974, 18804, 457, 1350, "Input",ExpressionUUID->"49d4ec81-18c7-4ad3-a7fb-13d918de606d"],
+Cell[59771, 1433, 6041, 131, 293, "Output",ExpressionUUID->"81e93b35-bf0c-49c8-9533-f79a0c2b4ef6"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
