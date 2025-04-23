@@ -70,3 +70,10 @@ Run the code in this [NextJournal notebook](https://nextjournal.com/emad-masroor
 
 - [Trajectories of the LogisticMap on a cobweb diagram](https://demonstrations.wolfram.com/TrajectoriesOfTheLogisticMap/)
 - [Orbit Diagram](https://demonstrations.wolfram.com/ClassicLogisticMap/)
+
+## The Double Pendulum
+
+- [Mathematica notebook for undamped double pendulum](DoublePendulum1.nb)]
+
+
+
