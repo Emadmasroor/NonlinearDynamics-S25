@@ -5,7 +5,11 @@ layout: default
 
 # Double Pendulum Lab 
 
-This lab uses Digilent Waveforms, similar to Lab 1. A collection of settings and variable names in Waveforms is called a 'workspace'; download the workspace for this lab [here](https://drive.google.com/file/d/1lmh2NXNRG0dyjZV_piCmQ6I-xZLXqV9j). You do not need to install Waveforms; it's already been installed on the lab computers for you.
+This lab uses Digilent Waveforms, similar to Lab 1. A collection of settings and variable names in Waveforms is called a 'workspace'; download the workspace for this lab at the following locations:
+- [Station 1](https://drive.google.com/file/d/1lmh2NXNRG0dyjZV_piCmQ6I-xZLXqV9j).
+- [Station 2]()
+- [Station 3]()
+- [Station 4](https://drive.google.com/file/d/1e369oFQncSamTyL7yvseJu5QSjN-Bjd0/view?usp=sharing)
 
 
 In this lab, you will use an asymmetric rotating disk to explore the non-linear phase plane.
