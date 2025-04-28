@@ -40,9 +40,11 @@ Waveforms has already been installed on the lab computers. Should you need to in
 There are a few different ways of recording data using Waveforms.
 1. Using the 'Logging' panel while 'Mode' is set to 'Screen'. In this method, you will capture everything you see currently on the oscilloscope into a csv file with a pre-set name, for example `test-0001.csv`, `test-0002.csv`. The system will automatically increment names and --- if you select 'Manual' execution --- collect this data whenever you click on Save in the 'Logging' panel. It may be a good idea to use this method for calibration.
 2. Using the 'Mode: Record' setting. In this setting, you can use a Configuration button to collect data using a certain smaple rate for any number of seconds. This gives you more fine-tuned control over how your data is collected.
+3. You can use any combination of these and other settings to collect data.
 
+![logging](Lab3/collect_5sec_sample_using_logging.gif){:style="max-width: 90%; height: auto;"} 
 
-![logging](Lab3/collect_5sec_sample_using_logging.gif){:style="max-width: 45%; height: auto;"} ![record](Lab3/collect_5sec_sample_using_record.gif){:style="max-width: 45%; height: auto;"}
+![record](Lab3/collect_5sec_sample_using_record.gif){:style="max-width: 90%; height: auto;"}
 
 
 ### Calibration and initial setup
@@ -80,6 +82,21 @@ Set the horizontal and vertical scaling and offset in such a way that you can vi
 ![setting2](Lab3/set_offsets.gif){:style="max-width: 80%; height: auto;"}
 
 However, you should start with the default settings in the workspace files you downloaded, and hopefully you won't need to change anything.
+
+
+## Theory
+
+The motion of a compound double pendulum can be described using just two coordinates: $\theta_1$ and $\theta_2$ as shown in the diagram below.
+
+![pend](Lab3/doublependulum.png){:style="max-width: 60%; height: auto;"}
+
+Since the pendulums are rigid bodies, it is sufficient to track the motion of their centers of mass. We can write their positions as
+
+$$ r_1 = \begin{bmatrix} +\frac{L_1}{2} \sin \theta_1 \\ - \frac{L_1}{2} \cos \theta_1 \end{bmatrix} $$
+$$ r_2 = \begin{bmatrix} + L_1 \sin \theta_1 +\frac{L_2}{2} \sin \theta_2 \\ - L_1 \cos \theta_1 - \frac{L_2}{2} \cos \theta_2 \end{bmatrix} $$
+
+
+
 
 
 
