@@ -29,9 +29,22 @@ Waveforms has already been installed on the lab computers. Should you need to in
 
 ![waveforms](Lab3/waveforms_sample.png){:style="max-width: 60%; height: auto;"}
 
+### Recording Data
+
+There are a few different ways of recording data using Waveforms.
+1. Using the 'Logging' panel while 'Mode' is set to 'Screen'. In this method, you will capture everything you see currently on the oscilloscope into a csv file with a pre-set name, for example `test-0001.csv`, `test-0002.csv`. The system will automatically increment names and --- if you select 'Manual' execution --- collect this data whenever you click on Save in the 'Logging' panel. It may be a good idea to use this method for calibration.
+2. Using the 'Mode: Record' setting. In this setting, you can use a Configuration button to collect data using a certain smaple rate for any number of seconds. This gives you more fine-tuned control over how your data is collected.
+
+
+![logging](Lab3/collect_5sec_sample_using_logging.gif){:style="max-width: 45%; height: auto;"} ![record](Lab3/collect_5sec_sample_using_record.gif){:style="max-width: 45%; height: auto;"}
+
+
 ### Calibration and initial setup
 
-Just like lab 1, you will need to calibrate the two pendulums. For this purpose, you have a 360-degree protractor. Use this portractor to record the voltage values for the following fifteen angles, measured counterclockwise with zero being the stable, at-rest position.
+Just like lab 1, you will need to calibrate the two pendulums. For this purpose, you have a 360-degree protractor. Use this portractor to record the voltage values for the following fifteen angles, measured counterclockwise with zero being the stable, at-rest position. Collect data for **5 seconds** when calibrating.
+
+Remember that you need one calibration set for **each pendulum** for a total of 15x2=30 calibration `csv` files.
+
 
 | 1  | $0^{\circ}$   |
 |----|---------------|
@@ -54,9 +67,12 @@ Just like lab 1, you will need to calibrate the two pendulums. For this purpose,
 
 #### Oscilloscope settings
 
-Set the horizontal and vertical scaling and offset in such a way that you can view the interesting dynamical behavior 'in one go'. This means that you will have to change the 'Base' setting on the 'Time' panel and the 'Offset' and 'Range' settings on the 'Channel' panels, as shown below.
+Set the horizontal and vertical scaling and offset in such a way that you can view the interesting dynamical behavior 'in one go'. This means that you may have to change the 'Base' setting on the 'Time' panel and the 'Offset' and 'Range' settings on the 'Channel' panels, as shown below.
 
 ![setting1](Lab3/set_sample_rate.gif){:style="max-width: 45%; height: auto;"} ![setting2](Lab3/set_offsets.gif){:style="max-width: 45%; height: auto;"}
+
+However, you should start with the default settings in the workspace files you downloaded, and hopefully you won't need to change anything.
+
 
 
 
