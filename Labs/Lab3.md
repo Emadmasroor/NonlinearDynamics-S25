@@ -6,15 +6,18 @@ layout: default
 
 The double pendulum is a simple mechanical system that, in theory, can exihibit signs of chaos. In this lab, you will use two interconnected 'compound pendulums' and investigate the degree to which their combined behavior is nonlinear and chaotic. You should think of this lab as a follow-on to Lab 1, where you investigated the behavior of a _single_ compound pendulum swinging at large angles.
 
+## Setup and Logistics
+
+This lab is self-scheduled. You will have some time during class to get started, and you should complete data collection by **Friday, May 2nd**.
 This lab will be held in Singer Hall 246 using 4 lab computers. Once your group starts working at one station, it is recommended that you complete the entire lab at that station. You have access to SH 246 at any time of day.
 
-## Equipment and hardware
+### Equipment and hardware
 
-This lab makes use of two aluminum bars. The first aluminum bar --- labeled the **Upper Pendulum** --- is attached to a fixed stand, while the second bar --- labeled the **Lower Pendulum** --- is attached to the lower end of the upper pendulum. Each attachment point is a [Vishay Spectrol 157-11103](https://www.vishay.com/docs/57042/157.pdf) potentiometer, which provides a voltage reading that is expected to scale, hopefully linearly, with the angle of rotation of the shaft. The potentiometer is already wired up and is connected to the data collection device.
+This lab makes use of two aluminum bars. The first aluminum bar --- labeled the **Upper Pendulum** --- is attached to a fixed stand, while the second bar --- labeled the **Lower Pendulum** --- is attached to the lower end of the upper pendulum. Each attachment point is a [Vishay Spectrol 157-11103](https://www.vishay.com/docs/57042/157.pdf) potentiometer, which provides a voltage reading that is expected to scale, hopefully linearly, with the angle of rotation of the shaft. The potentiometers are already wired up and connected to the data collection device.
 
 Data collection is carried out using the [Analog Discovery 3](https://digilent.com/shop/analog-discovery-3/), a multi-purpose data collection device that here provides power and ground to the potentiometers and reads the analog output from them into an oscilloscope software on the lab workstations.
 
-## Software
+### Software
 
 This lab uses Digilent Waveforms, similar to Lab 1. A collection of settings and variable names in Waveforms is called a 'workspace'; download the workspace for this lab at the following locations:
 - [Station 1](https://drive.google.com/file/d/1lmh2NXNRG0dyjZV_piCmQ6I-xZLXqV9j)
@@ -23,6 +26,37 @@ This lab uses Digilent Waveforms, similar to Lab 1. A collection of settings and
 - [Station 4](https://drive.google.com/file/d/1e369oFQncSamTyL7yvseJu5QSjN-Bjd0/view?usp=sharing)
 
 Waveforms has already been installed on the lab computers. Should you need to install it on your personal computer, you can download it [here](https://tinyurl.com/E91LabSoftware). A reference manual is available [here]().
+
+![waveforms](Lab3/waveforms_sample.png){:style="max-width: 60%; height: auto;"}
+
+### Calibration and initial setup
+
+Just like lab 1, you will need to calibrate the two pendulums. For this purpose, you have a 360-degree protractor. Use this portractor to record the voltage values for the following fifteen angles, measured counterclockwise with zero being the stable, at-rest position.
+
+| 1  | $0^{\circ}$   |
+|----|---------------|
+| 2  | $10^{\circ}$  |
+| 3  | $30^{\circ}$  |
+| 4  | $60^{\circ}$  |
+| 5  | $90^{\circ}$  |
+| 6  | $120^{\circ}$ |
+| 7  | $150^{\circ}$ |
+| 8  | $170^{\circ}$ |
+| 9  | $190^{\circ}$ |
+| 10 | $210^{\circ}$ |
+| 11 | $240^{\circ}$ |
+| 12 | $270^{\circ}$ |
+| 13 | $300^{\circ}$ |
+| 14 | $330^{\circ}$ |
+| 15 | $350^{\circ}$ |
+
+![image](Lab3/protractor.png){:style="max-width: 90%; height: auto;"}
+
+#### Oscilloscope settings
+
+Set the horizontal and vertical scaling and offset in such a way that you can view the interesting dynamical behavior 'in one go'. This means that you will have to change the 'Base' setting on the 'Time' panel and the 'Offset' and 'Range' settings on the 'Channel' panels, as shown below.
+
+![setting1](Lab3/set_sample_rate.gif){:style="max-width: 45%; height: auto;"} ![setting2](Lab3/set_offsets.gif){:style="max-width: 45%; height: auto;"}
 
 
 
