@@ -97,7 +97,7 @@ Since the pendulums are rigid bodies, it is sufficient to track the motion of th
 
 and their velocities, after differentiating with respect to time, are:
 
-![eq2](Lab3/eq2.png){:style="max-width: 60%; height: auto;"}
+![eq2](Lab3/eq2.png){:style="max-width: 40%; height: auto;"}
 
 With this information at hand, we can write the potential and kinetic energies of the system, which then yields an expression for the Lagrangian. ...
 
@@ -109,7 +109,7 @@ can then be used for each coordinate, where the term `n.c.f` refers to non-conse
 
 ![eq4](Lab3/frictionterm.png){:style="max-width: 5%; height: auto;"}
 
-where 'c' is a constant friction coefficient.
+where 'c' is a constant friction coefficient that could be different for each constituent pendulum.
 
 ## Tasks
 
