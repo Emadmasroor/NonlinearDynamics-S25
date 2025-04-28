@@ -15,6 +15,10 @@ This lab will be held in Singer Hall 246 using 4 lab computers. Once your group 
 
 This lab makes use of two aluminum bars. The first aluminum bar --- labeled the **Upper Pendulum** --- is attached to a fixed stand, while the second bar --- labeled the **Lower Pendulum** --- is attached to the lower end of the upper pendulum. Each attachment point is a [Vishay Spectrol 157-11103](https://www.vishay.com/docs/57042/157.pdf) potentiometer, which provides a voltage reading that is expected to scale, hopefully linearly, with the angle of rotation of the shaft. The potentiometers are already wired up and connected to the data collection device.
 
+In addition to the pendulum itself, this lab involves the use of a release mechanism that will allow you to reliably repeat experiments. The release mechanism takes the form of a simple hand-driven screw on which the lower pendulum can rest in a configuration of your choice, as shown below. Dynamic experiments are started by retracting the screw and letting the pendulum fall with zero initial speed.
+
+![equip1](Lab3/equip1.png){:style="max-width: 45%; height: auto;"} ![equip2](Lab3/equip2.png){:style="max-width: 45%; height: auto;"}
+
 Data collection is carried out using the [Analog Discovery 3](https://digilent.com/shop/analog-discovery-3/), a multi-purpose data collection device that here provides power and ground to the potentiometers and reads the analog output from them into an oscilloscope software on the lab workstations.
 
 ### Software
@@ -46,8 +50,9 @@ Just like lab 1, you will need to calibrate the two pendulums. For this purpose,
 Remember that you need one calibration set for **each pendulum** for a total of 15x2=30 calibration `csv` files.
 
 
-| 1  | $0^{\circ}$   |
+| No | Angle   	     |
 |----|---------------|
+| 1  | $$0^{\circ}$$ |
 | 2  | $10^{\circ}$  |
 | 3  | $30^{\circ}$  |
 | 4  | $60^{\circ}$  |
@@ -69,7 +74,9 @@ Remember that you need one calibration set for **each pendulum** for a total of 
 
 Set the horizontal and vertical scaling and offset in such a way that you can view the interesting dynamical behavior 'in one go'. This means that you may have to change the 'Base' setting on the 'Time' panel and the 'Offset' and 'Range' settings on the 'Channel' panels, as shown below.
 
-![setting1](Lab3/set_sample_rate.gif){:style="max-width: 45%; height: auto;"} ![setting2](Lab3/set_offsets.gif){:style="max-width: 45%; height: auto;"}
+![setting1](Lab3/set_sample_rate.gif){:style="max-width: 80%; height: auto;"} 
+
+![setting2](Lab3/set_offsets.gif){:style="max-width: 80%; height: auto;"}
 
 However, you should start with the default settings in the workspace files you downloaded, and hopefully you won't need to change anything.
 
