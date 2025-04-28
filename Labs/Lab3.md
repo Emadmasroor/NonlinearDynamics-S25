@@ -137,8 +137,8 @@ Choose an initial condition for which you see **multiple 360-degree turns of the
 - clockwise turn `-360`
 
 1. Conduct three runs from your chosen initial condition and reord the number, direction and order of 360-degree turns of the lower pendulum each time.
-2. Change the initial condition by moving the point of release a few centimeters up, down, left, or right, and repeat the exercise. Do you observe the same number, direction and order of 360-degree turns? Conduct three runs here, too.
-3. Repeat using the same distance in all four directions, i.e., if you moved the initial release location five centimeters to the right, then repeat with five centimeters to the left, five centimeters above, and five centimeters below the original release point.
+2. Change the initial condition by moving the point of release a few centimeters up or down, and repeat the exercise. Do you observe the same number, direction and order of 360-degree turns? Conduct three runs here, too.
+3. Repeat using the same distance in both directions, i.e., if you moved the initial release location five centimeters up, then repeat with five centimeters down, relative to the original release point.
 
 For this part, you are advised to use the protractor to note down the initial angles.
 
