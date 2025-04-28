@@ -1,8 +1,6 @@
 ---
-layout: labs
-title: Lab 3 Double Pendulum
+layout: default
 ---
-
 
 # Double Pendulum Lab 
 
@@ -24,8 +22,7 @@ This lab uses Digilent Waveforms, similar to Lab 1. A collection of settings and
 - [Station 3](https://drive.google.com/file/d/13-X-gba0pyKC4v7PUUqRmxb6zQ9JupKs/view?usp=sharing)
 - [Station 4](https://drive.google.com/file/d/1e369oFQncSamTyL7yvseJu5QSjN-Bjd0/view?usp=sharing)
 
-
-
+Waveforms has already been installed on the lab computers. Should you need to install it on your personal computer, you can download it [here](https://tinyurl.com/E91LabSoftware). A reference manual is available [here]().
 
 
 
