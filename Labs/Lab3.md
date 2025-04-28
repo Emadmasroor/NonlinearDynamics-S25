@@ -72,7 +72,7 @@ Remember that you need one calibration set for **each pendulum** for a total of 
 | 14  | 330   |
 | 15  | 350   |
 
-![image](Lab3/protractor.png){:style="max-width: 90%; height: auto;"}
+![image](Lab3/protractor.png){:style="max-width: 50%; height: auto;"}
 
 #### Oscilloscope settings
 
@@ -93,7 +93,7 @@ The motion of a compound double pendulum can be described using just two coordin
 
 Since the pendulums are rigid bodies, it is sufficient to track the motion of their centers of mass. We can write their positions as
 
-![eq1](Lab3/eq1.png){:style="max-width: 60%; height: auto;"}
+![eq1](Lab3/eq1.png){:style="max-width: 40%; height: auto;"}
 
 and their velocities, after differentiating with respect to time, are:
 
@@ -103,11 +103,11 @@ With this information at hand, we can write the potential and kinetic energies o
 
 The Euler-Lagrange equation 
 
-![eq3](Lab3/eq3.png){:style="max-width: 60%; height: auto;"}
+![eq3](Lab3/eq3.png){:style="max-width: 20%; height: auto;"}
 
 can then be used for each coordinate, where the term `n.c.f` refers to non-conservative body forces, in this case, friction. We will use, for the friction, a simple term of the form
 
-![eq4](Lab3/frictionterm.png){:style="max-width: 10%; height: auto;"}
+![eq4](Lab3/frictionterm.png){:style="max-width: 5%; height: auto;"}
 
 where 'c' is a constant friction coefficient.
 
@@ -126,6 +126,7 @@ There are four tasks, each of which involve collecting data (which you must do i
 2. Record (on the oscilloscope) five releases from the same spot.
 3. On the same set of axes, plot the two angles versus time using a color scheme that allows for a meaningful comparison between the five runs. There will be ten curves, so choose your line styles wisely. 
 4. On the same set of axes, draw a 'phase plot' showing the two angles plotted against each other. There will be five curves on this graph.
+5. You are encouraged to repeat this for two other (visually distinct) initial conditions, but you can skip this if you don't have enough time.
 
 ### Predictability
 
