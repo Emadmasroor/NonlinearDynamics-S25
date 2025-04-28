@@ -142,9 +142,11 @@ Choose an initial condition for which you see **multiple 360-degree turns of the
 
 For this part, you are advised to use the protractor to note down the initial angles.
 
+Present your data either in table format or visually.
+
 ### Obtaining angular velocity data
 
-The potentiometers only report angular position, not angular velocity. For one set of initial conditions --- different from the 'repeatability' section --- use a program such as [MATLAB's diff function](https://www.mathworks.com/help/matlab/ref/double.diff.html) to generate a phase plot in which you show the angular position on the horizontal axis and the angular velocity on the vertical axis. You may choose to do this for an initial conditions with no 360-degree turns if you wish.
+The potentiometers only report angular position, not angular velocity. For one set of initial conditions --- different from the previous sections --- use a program such as [MATLAB's diff function](https://www.mathworks.com/help/matlab/ref/double.diff.html) to calculate the angular velocity from the angular position by doing simple numerical differentiation to first order. Generate a phase plot in which you show the angular position on the horizontal axis and the angular velocity on the vertical axis. You may choose to do this for an initial conditions with no 360-degree turns if you wish.
 
 ### Comparison with numerical simulation
 
