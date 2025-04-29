@@ -36,8 +36,6 @@ Hyperlinks to lectures and homework assignments will be posted here.
 | [13.2 W 4/23](Lecs/E91.S25.Lec24.pdf)                                                                                        |                                             |                    | [HW 8](HW/HW8.pdf)                                    |
 | 14.1 M 4/28                                                                                        |                                             |                    |                                                       |
 | 14.2 W 4/30                                                                                        |                                             |                    |                                                       |
-| 13.2 M 5/05                                                                                        |                                             |                    |                                                       |
-
 
 
 
