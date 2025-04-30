@@ -3,6 +3,8 @@ Class website of ENGR 91, Nonlinear Dynamics & Chaos @ Swarthmore Engineering, S
 
 [Resources](Resources/) • [Labs](Labs/) • [Syllabus](E91-S25-Syllabus.pdf)
 
+**NEW:** [Course Evaluation](https://forms.gle/exLrpKuTUs8tvxBP9)
+
 ## Schedule
 
 Hyperlinks to lectures and homework assignments will be posted here. 
