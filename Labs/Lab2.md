@@ -1,6 +1,6 @@
 ---
 title: Lab 2 The Nonlinear Phase Plane
-description:
+description: Use an asymmetric rotating disk to explore the non-linear phase plane.
 code: E91
 term: Spring 2025
 institution: Swarthmore College
@@ -9,25 +9,6 @@ tags: teaching
 date: 2025-01-01
 duedate: March 21
 layout: lab
-permalink: /classes/E91_S25/Labs/Lab2
-
-authors:
-  - name: Emad Masroor
-    url: "https://emadmasroor.github.io"
-    affiliations:
-      name: Swarthmore College
-      department: Department of Engineering
-      state: 
-
-
-bibliography: 
-toc:
-  - name: Logistics
-  - name: Setup
-  - name: Free Oscillation
-  - name: Driven Oscillations
-  - name: Report
-  - name: Troubleshooting
 ---
 
 In this lab, you will use an asymmetric rotating disk to explore the non-linear phase plane.
