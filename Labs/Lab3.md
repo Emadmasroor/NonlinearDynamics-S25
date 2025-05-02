@@ -1,5 +1,7 @@
 ---
-layout: default
+layout: lab
+title: Lab 3 Double Pendulum
+description: Exploring a simple chaotic system
 ---
 
 # Double Pendulum Lab 
