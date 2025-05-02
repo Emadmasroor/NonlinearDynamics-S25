@@ -1,6 +1,6 @@
 ---
 title: Lab 1 Linearity, Nonlinearity, and the Compound Pendulum
-description: 
+description: Using a compound pendulum to investigate linear and nonlinear dynamics.
 code: E91
 term: Spring 2025
 institution: Swarthmore College
@@ -9,27 +9,7 @@ tags: teaching
 date: 2025-01-01
 duedate: Mon, Feb 24
 layout: lab
-permalink: /classes/E91_S25/Labs/Lab1
-
-authors:
-  - name: Emad Masroor
-    url: "https://emadmasroor.github.io"
-    affiliations:
-      name: Swarthmore College
-      department: Department of Engineering
-      state: 
-
-
-bibliography: 
-toc:
-  - name: Logistics
-  - name: Experiments
-  - name: Theory
-  - name: Data Analysis
-  - name: Narrative
 ---
-
-In this lab, you will use a compound pendulum to investigate linear and nonlinear dynamics.
 
 # Logistics
 
